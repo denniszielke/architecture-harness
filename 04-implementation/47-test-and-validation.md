@@ -8,9 +8,9 @@
 
 ## Test register
 
-| ID | Requirement or risk | Test level | Environment/data | Method | Expected result | Actual result | Evidence | Status |
+| ID | Requirement or risk | Test level | Planned environment/data | Method | Expected result | Required evidence | Downstream owner | Status |
 |---|---|---|---|---|---|---|---|---|
-| `TEST-IMP-001` | `OBJ/DES/NFR/RISK-NNN` | [Unit/contract/integration/system/security/performance/recovery/acceptance] | [Context] | [Reproducible method] | [Threshold] | Not run | `EVID-NNN` | Planned |
+| `TEST-IMP-001` | `OBJ/DES/NFR/RISK-NNN` | [Unit/contract/integration/system/security/performance/recovery/acceptance] | [Context] | [Reproducible method] | [Threshold] | [Logs, report, trace, review] | [Role/team] | Planned |
 
 ## Coverage
 
@@ -23,18 +23,20 @@
 - Load, latency, throughput, concurrency, scale, endurance, rate limiting, and cost.
 - Backup, restore, rollback, dependency outage, zone/region failure, and manual continuity.
 
-## Evidence record
+## Expected evidence contract
 
-Every result records versioned code and artifacts, environment, configuration, dependencies, data, method, expected result, actual result, timestamps, logs/metrics/traces, reviewer, and limitation.
+Every downstream result should record versioned code and artifacts, environment, configuration, dependencies, data, method, expected result, actual result, timestamps, logs, metrics, traces, reviewer, and limitation.
 
-Register durable results in [48-evidence-index.md](48-evidence-index.md).
+Register relevant downstream results in the [external evidence register](../01-preparation/19-external-evidence-register.md).
 
-## Independent reproduction
+## Reproduction requirements
 
-[Define the clean-checkout or clean-environment commands another authorized person uses to reproduce the accepted evidence.]
+[Define the clean-checkout or clean-environment commands the downstream repository must provide so another authorized person can reproduce the evidence.]
 
-## Exit summary
+## Planned coverage summary
 
-| Evidence class | Demonstrated | Designed only | Failed | Deferred | Limitation |
+| Area | Planned tests | Required evidence | Deferred coverage | Execution owner | Limitation |
 |---|---|---|---|---|---|
-| [Functional/security/performance/resilience/operations] | [Links] | [Links] | [Links] | [Links] | [Boundary] |
+| [Functional/security/performance/resilience/operations] | [Test IDs] | [Evidence contract] | [Gap] | [Role/team] | [Boundary] |
+
+This harness defines tests and expected evidence. It does not execute tests or claim their results.

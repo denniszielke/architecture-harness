@@ -6,9 +6,9 @@
 > Gate: G4
 > Last reviewed: Not reviewed
 
-| ID | Outcome or work item | Type | Priority | Dependencies | Design/ADR links | Acceptance and tests | Evidence | Owner | Status |
+| ID | Outcome or work item | Type | Priority | Dependencies | Design/ADR links | Building blocks | Acceptance and planned tests | Owner | Status |
 |---|---|---|---|---|---|---|---|---|---|
-| `IMP-001` | [Thin-slice outcome] | Feature | [Priority] | [IDs] | [Links] | `TEST-IMP-NNN` | `EVID-NNN` | [Role] | Ready/Blocked/In progress/Done |
+| `IMP-001` | [Thin-slice outcome] | Feature | [Priority] | [IDs] | [Links] | `FBB-NNN` | `TEST-IMP-NNN` | [Role] | Proposed/Ready/Blocked |
 
 ## Backlog types
 
@@ -17,8 +17,11 @@
 - `Experiment`: bounded question with stop criteria.
 - `Control`: security, privacy, policy, evidence, or quality requirement.
 - `Debt`: explicit prototype-to-target gap.
-- `Defect`: behavior that violates an accepted requirement.
+- `Migration`: data, interface, configuration, or operating-state transition.
+- `Hardening`: production security, resilience, performance, or operational work.
 
 ## Ready rule
 
-An item is ready only when its outcome, owner, dependencies, acceptance, security implications, data/contracts, environment, ADR status, and evidence expectation are sufficient to implement without silently making a material decision.
+An item is ready for downstream engineering only when its outcome, owner, dependencies, acceptance, security implications, data and contracts, building blocks, environment assumptions, ADR status, test plan, and expected evidence are sufficient to implement without silently making a material decision.
+
+This backlog is a planning artifact. Downstream delivery tooling owns implementation status such as in progress, built, tested, released, or operated.

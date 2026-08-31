@@ -16,9 +16,9 @@
 - Assumptions remain labeled and show validation ownership.
 - Targets are not forecasts or achieved results.
 - Accepted decisions link to the accepted ADR and conditions.
-- Designed controls are labeled designed until implementation evidence exists.
-- Demonstrated results state data, environment, method, result, and limitation.
-- Operational claims require evidence from the intended operating context.
+- Designed controls remain labeled designed unless cited downstream implementation evidence exists.
+- Demonstrated results state the external source, data, environment, method, result, and limitation.
+- Operational claims require cited external evidence from the intended operating context.
 - Cost claims include currency, region, pricing date, assumptions, range, and exclusions.
 - Future commitments identify owner, funding or approval state, and dependencies.
 - Remove unsupported claims rather than converting uncertainty into confident wording.

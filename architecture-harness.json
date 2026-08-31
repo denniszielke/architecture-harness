@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1",
+  "schemaVersion": "1.2",
   "artifactStates": [
     "Draft",
     "In review",
@@ -40,6 +40,9 @@
     "EXP": "Experiment",
     "IMP": "Implementation item",
     "US": "User story",
+    "FBB": "Functional building block",
+    "CTX": "Code-generation context package",
+    "HND": "Implementation handoff",
     "TEST": "Phase test (TEST-<phase>-NNN)",
     "EVID": "Evidence",
     "SIZE-A": "Sizing assumption",
@@ -99,7 +102,7 @@
     },
     {
       "id": "04",
-      "name": "implementation",
+      "name": "implementation-handoff",
       "folder": "04-implementation",
       "plan": "04-implementation/40-implementation-phase-plan.md",
       "mayStartAfter": [
@@ -162,10 +165,10 @@
     "G0": "Framing sufficient for preparation",
     "G1": "Preparation baseline accepted",
     "G2": "Logical design ready for architecture",
-    "G3": "Architecture ready for implementation",
-    "G4": "Implementation evidence accepted",
-    "G5": "Sizing confidence accepted",
-    "G6": "Operational readiness accepted",
+    "G3": "Architecture ready for implementation planning",
+    "G4": "Implementation handoff ready",
+    "G5": "Sizing model and validation plan ready",
+    "G6": "Operating model and operational-readiness plan ready",
     "G7": "Decision package ready"
   },
   "requiredArtifacts": [
@@ -186,6 +189,7 @@
     "01-preparation/16-change-impact-register.md",
     "01-preparation/17-gate-register.md",
     "01-preparation/18-risk-register.md",
+    "01-preparation/19-external-evidence-register.md",
     "02-design/20-design-phase-plan.md",
     "02-design/21-high-level-design.md",
     "02-design/22-design-principles.md",
@@ -212,9 +216,10 @@
     "04-implementation/43-prototypes.md",
     "04-implementation/44-release-and-deployment-automation.md",
     "04-implementation/45-user-stories.md",
-    "04-implementation/46-code-generation-plan.md",
+    "04-implementation/46-code-generation-context.md",
     "04-implementation/47-test-and-validation.md",
-    "04-implementation/48-evidence-index.md",
+    "04-implementation/48-functional-building-blocks.md",
+    "04-implementation/49-implementation-handoff.md",
     "05-sizing/50-sizing-plan.md",
     "05-sizing/51-sizing-assumptions.md",
     "05-sizing/52-observability-and-key-metrics.md",

@@ -13,3 +13,5 @@ Use the architecture gate-review skill.
 5. Check whether an earlier accepted gate needs reassessment because of a changed input.
 6. Write only the readiness recommendation in the gate register.
 7. Leave the decision, authority, and date unchanged unless the actual authority supplied them.
+
+For G4, G5, and G6, review planning and handoff readiness. Downstream implementation execution, performance results, and operational evidence are optional external inputs and are never gate requirements in this harness.

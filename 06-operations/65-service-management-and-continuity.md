@@ -6,7 +6,7 @@
 > Gate: G6
 > Last reviewed: Not reviewed
 
-This artifact operationalizes the logical resilience design and NFR architecture. Those artifacts own required behavior and mechanisms; this artifact owns live service processes, exercises, continuity, and recovery evidence.
+This artifact translates the logical resilience design and NFR architecture into a service-management and continuity plan. Those artifacts own required behavior and mechanisms; this artifact owns planned processes, exercises, continuity, recovery, and evidence expectations.
 
 ## Service definition
 
@@ -28,22 +28,24 @@ This artifact operationalizes the logical resilience design and NFR architecture
 
 ## Continuity and recovery
 
-| Scenario | Business workaround | Technical recovery | Dependency action | Exercise frequency | Evidence |
+| Scenario | Business workaround | Technical recovery | Dependency action | Exercise frequency | Expected evidence |
 |---|---|---|---|---|---|
 | [Region/service/data/identity/network/vendor/team failure] | [Continuity mode] | [Procedure] | [Action] | [Frequency] | [Link] |
 
-## Exercise record
+## Exercise specification
 
-Record scenario, participants, environment, injected failure, expected behavior, actual detection and recovery, RTO/RPO achieved, data integrity, communication, manual effort, cost, unresolved gaps, and follow-up owner.
+Specify scenario, participants, environment, injected failure, expected behavior, success criteria, required detection and recovery observations, RTO/RPO measurement, data-integrity checks, communication, manual-effort and cost measures, and downstream owner.
 
 ## Operational test and exercise register
 
-| Test ID | Scenario or procedure | Environment | Expected result | Actual result | Evidence | Owner | Status |
-|---|---|---|---|---|---|---|---|
-| `TEST-OPS-001` | [Incident, restore, failover, continuity, rollout, access, or security operation] | [Context] | [Threshold] | Not run | `EVID-NNN` | [Role] | Planned |
+| Test ID | Scenario or procedure | Planned environment | Expected result | Required evidence | Downstream owner | Status |
+|---|---|---|---|---|---|---|
+| `TEST-OPS-001` | [Incident, restore, failover, continuity, rollout, access, or security operation] | [Context] | [Threshold] | [Record, logs, measurements, review] | [Role/team] | Planned |
 
-Register durable results and limitations in [../04-implementation/48-evidence-index.md](../04-implementation/48-evidence-index.md).
+Register relevant downstream results and limitations in the [external evidence register](../01-preparation/19-external-evidence-register.md).
 
 ## Retirement and exit
 
 [Define data and configuration export, evidence retention, identity and access removal, dependency removal, resource deletion, contract exit, knowledge transfer, and proof of closure.]
+
+G6 confirms that the operating model and validation plan are ready. It does not prove that the service has operated or recovered successfully.

@@ -1,4 +1,4 @@
-# Sizing and Performance Tests
+# Sizing Validation Plan
 
 > Status: Draft
 > Canonical owner: Performance test lead - name to be assigned
@@ -6,13 +6,13 @@
 > Gate: G5
 > Last reviewed: Not reviewed
 
-| Test ID | Workload scenario | Architecture/configuration | Data shape | Duration | Success criteria | Actual result | Cost observed | Evidence |
+| Test ID | Workload scenario | Planned architecture/configuration | Data shape | Duration | Success criteria | Required observations | Downstream owner | External evidence |
 |---|---|---|---|---|---|---|---|---|
-| `TEST-SIZE-001` | [Steady/peak/burst/endurance/growth/failure/recovery] | [Versioned setup] | [Representative data] | [Time] | [NFR threshold] | Not run | Not measured | [Link] |
+| `TEST-SIZE-001` | [Steady/peak/burst/endurance/growth/failure/recovery] | [Versioned setup] | [Representative data] | [Time] | [NFR threshold] | [Latency, throughput, saturation, errors, cost] | [Role/team] | [Link when available] |
 
-Register durable results and their limitations in [../04-implementation/48-evidence-index.md](../04-implementation/48-evidence-index.md).
+Register relevant downstream results and their limitations in the [external evidence register](../01-preparation/19-external-evidence-register.md).
 
-## Test progression
+## Planned test progression
 
 1. Component benchmark for obvious bottlenecks.
 2. End-to-end steady-state test.
@@ -23,15 +23,17 @@ Register durable results and their limitations in [../04-implementation/48-evide
 7. Failover and reduced-capacity operation.
 8. Cost and observability overhead.
 
-## Test quality
+## Validation-plan quality
 
 - Warm-up, run, and cool-down periods are explicit.
 - Data distribution and query or event mix match the workload model.
 - Client, network, dependency, and telemetry bottlenecks are distinguished.
-- Repeats and variance are recorded.
+- Required repeats, variance, and confidence treatment are specified.
 - Autoscale minimum, maximum, step, delay, and cooldown are visible.
-- Tests stop safely when cost, quota, stability, or security thresholds are crossed.
+- Stop conditions protect cost, quota, stability, data, and security boundaries.
 
 ## Extrapolation
 
-[Explain any difference between tested and target scale, the model used to extrapolate, confidence, nonlinear risks, and the next trigger for a larger test.]
+[Define how downstream results will be compared with target scale, the model used to extrapolate, confidence treatment, nonlinear risks, and the trigger for a larger test.]
+
+This artifact is a validation specification. Test execution and results belong to the downstream implementation or performance-testing environment.

@@ -1,6 +1,6 @@
 ---
 name: architecture-gate-review
-description: "Prepare an evidence-based G0-G7 readiness recommendation. Use this skill whenever the user asks whether a phase is ready, wants a gate review, requests readiness criteria, or needs blockers and conditions for framing, preparation, design, architecture, implementation, sizing, operations, or presentation."
+description: "Prepare an evidence-based G0-G7 readiness recommendation. Use this skill whenever the user asks whether a phase is ready, wants a gate review, requests readiness criteria, or needs blockers and conditions for framing, preparation, design, architecture, implementation handoff, sizing, operations planning, or presentation."
 ---
 
 # Architecture Gate Review
@@ -21,6 +21,8 @@ description: "Prepare an evidence-based G0-G7 readiness recommendation. Use this
 6. Record blockers, conditions, dissent, accepted-risk requests, owner roles, and due actions.
 7. Write a readiness recommendation in the gate register.
 8. Leave the gate decision untouched unless the actual authority provided it.
+
+For G4, G5, and G6, assess the completeness and review state of the handoff, sizing model, validation plans, and operating model. Do not require or imply implementation completion, executed performance tests, or operating-effectiveness evidence.
 
 ## Error handling
 

@@ -43,7 +43,7 @@ A task is ready when:
 - blocking assumptions and ADRs are resolved or explicitly part of the task;
 - expected output, completion check, evidence, and downstream handoff are clear.
 
-Prefer the smallest task that reduces a blocking uncertainty or produces end-to-end evidence.
+Prefer the smallest task that reduces a blocking uncertainty or completes a traceable architecture-to-engineering handoff.
 
 ### 3. Route one bounded concern
 
@@ -51,9 +51,9 @@ Prefer the smallest task that reduces a blocking uncertainty or produces end-to-
 - Product-independent behavior: `Solution Design Partner`
 - Product mapping, topology, dependencies, or NFR architecture: `Architecture Partner`
 - Material decision: `ADR Proposal Partner`
-- Backlog, environment, code, automation, tests: `Engineering Manager`
-- Capacity, performance, telemetry, or cost: `Sizing and FinOps Partner`
-- Support, procedures, rollout, security operations, or continuity: `Operations Readiness Partner`
+- Implementation plan, backlog, stories, building blocks, code-generation context, and test/release plans: `Engineering Manager`
+- Capacity, performance, telemetry, cost model, or sizing validation plan: `Sizing and FinOps Partner`
+- Operating model, procedure specifications, rollout, security operations, or continuity plan: `Operations Readiness Partner`
 - Read-only security review: `Cloud Security Reviewer`
 
 Give the specialist the exact task ID, canonical inputs, affected records, expected output, exclusions, evidence need, and gate.

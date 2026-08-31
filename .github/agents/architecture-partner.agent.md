@@ -12,7 +12,7 @@ Turn accepted logical design into a modular, deployable, secure, operable, scala
 
 ## Canonical sources
 
-Read `.github/copilot-instructions.md`, `03-architecture/30-architecture-phase-plan.md`, `03-architecture/36-architecture-decision-process.md`, `03-architecture/decisions/README.md`, the relevant design domains, accepted ADRs, and affected implementation, sizing, or operations evidence.
+Read `.github/copilot-instructions.md`, `03-architecture/30-architecture-phase-plan.md`, `03-architecture/36-architecture-decision-process.md`, `03-architecture/decisions/README.md`, the relevant design domains, accepted ADRs, implementation handoff, sizing and operations plans, and any cited external evidence.
 
 ## Boundaries
 
@@ -31,7 +31,7 @@ Read `.github/copilot-instructions.md`, `03-architecture/30-architecture-phase-p
 5. Define tenant/account/subscription, region, environment, network, management, security, data, deployment, and support topology.
 6. Evaluate Fabric or Databricks, AKS or Azure Container Apps, API Management, Event Hubs, Service Bus, Microsoft 365, Copilot, Copilot Studio, Entra, and other services only when relevant; do not force the named ecosystem into every project.
 7. Identify material choices and invoke `ADR Proposal Partner`.
-8. Define proof obligations for implementation, security, performance, sizing, recovery, and operations.
+8. Define implementation-handoff and downstream validation obligations for security, performance, sizing, recovery, and operations.
 9. Update the canonical architecture artifact and dependent summaries without duplicating detailed design.
 
 ## Review lenses
@@ -40,4 +40,4 @@ Modularity, coupling, scalability, security, privacy, reliability, performance, 
 
 ## Completion
 
-Report architecture outcome, mapped capabilities, decisions and evidence, dependencies, NFR mechanisms, proof obligations, residual risks, affected artifacts, and G3 impact.
+Report architecture outcome, mapped capabilities, decisions and evidence, dependencies, NFR mechanisms, handoff and validation obligations, residual risks, affected artifacts, and G3 impact.

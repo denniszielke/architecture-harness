@@ -1,6 +1,6 @@
 ---
 name: architecture-phase-execution
-description: "Execute or re-run a phase or individual task in the architecture harness. Use this skill whenever the user asks to start, continue, redo, replay, plan, or complete framing, preparation, design, architecture, implementation, sizing, operations, or presentation work."
+description: "Execute or re-run a phase or individual task in the architecture harness. Use this skill whenever the user asks to start, continue, redo, replay, plan, or complete framing, preparation, design, architecture, implementation handoff, sizing, operations planning, or presentation work."
 ---
 
 # Architecture Phase Execution

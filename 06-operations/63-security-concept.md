@@ -10,7 +10,7 @@ This artifact operationalizes the logical [security design](../02-design/domains
 
 ## Security operating model
 
-| Security function | Prevent | Detect | Respond/recover | Owner | Evidence and metric |
+| Security function | Prevent | Detect | Respond/recover | Owner | Expected evidence and metric |
 |---|---|---|---|---|---|
 | Identity, data, network, workload, supply chain, vulnerability, threat, incident, AI, or evidence | [Control] | [Signal] | [Procedure] | [Role] | [Metric/link] |
 
@@ -29,12 +29,14 @@ This artifact operationalizes the logical [security design](../02-design/domains
 - Incident classification, containment, forensics, evidence preservation, communication, recovery, and learning.
 - Dependency, artifact, image, model, prompt, data, and pipeline provenance review.
 
-## Security evidence
+## Security evidence plan
 
-| Evidence | Source | Retention | Access | Review frequency | Owner |
+| Evidence | Planned source | Retention | Access | Review frequency | Downstream owner |
 |---|---|---|---|---|---|
 | [Alert, access review, scan, incident, key rotation, restore, exercise] | [System] | [Period] | [Roles] | [Frequency] | [Role] |
 
 ## Residual risk and exceptions
 
 [Link approved exceptions and residual risks. State expiry, compensating control, owner, and revisit trigger.]
+
+This concept specifies operational security requirements. Control implementation, monitoring, incident execution, and operating-effectiveness evidence belong to downstream delivery and operations.

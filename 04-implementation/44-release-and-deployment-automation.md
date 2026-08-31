@@ -1,4 +1,4 @@
-# Release and Deployment Automation
+# Release and Deployment Automation Plan
 
 > Status: Draft
 > Canonical owner: Platform or release engineering lead - name to be assigned
@@ -14,13 +14,13 @@ Work item -> reviewed change -> build -> quality/security checks
 -> verification -> evidence -> promotion or rollback
 ```
 
-## Pipeline controls
+## Planned pipeline controls
 
-| Stage | Inputs | Automated checks | Approval | Artifact/evidence | Failure action |
+| Stage | Inputs | Required automated checks | Approval | Expected artifact/evidence | Failure action |
 |---|---|---|---|---|---|
 | [Build/test/deploy/verify/promote] | [Versioned inputs] | [Checks] | [Role or policy] | [Output] | [Stop/rollback] |
 
-## Required automation
+## Automation requirements
 
 - Reproducible builds with pinned dependencies and artifact provenance.
 - Unit, contract, integration, migration, security, policy, infrastructure, and acceptance checks.
@@ -32,8 +32,12 @@ Work item -> reviewed change -> build -> quality/security checks
 
 ## Separation of duties
 
-[Define who may author, review, approve, deploy, operate, and use emergency access. State where automation enforces the separation.]
+[Define who may author, review, approve, deploy, operate, and use emergency access. State where downstream automation must enforce the separation.]
 
 ## Rollback and recovery
 
-[Define compatibility window, state/data migration reversal, feature disablement, prior artifact restoration, and evidence capture.]
+[Define compatibility window, state and data migration reversal, feature disablement, prior artifact restoration, and expected evidence.]
+
+## Downstream ownership
+
+[Identify the implementation repository, pipeline owner, required platform services, policy dependencies, and validation owner. This harness specifies the automation contract; it does not create or run pipelines.]

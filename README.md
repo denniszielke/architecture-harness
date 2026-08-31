@@ -1,6 +1,6 @@
 # Architecture Harness
 
-A fork-ready, agent-assisted method for taking a cloud solution from an initial scenario to an evidence-backed design, target architecture, implementation, sizing model, operating model, and decision presentation.
+A fork-ready, agent-assisted method for taking a cloud solution from an initial scenario to an evidence-backed design, target architecture, implementation-ready handoff, sizing model, operating model, and decision presentation.
 
 The harness is product-independent through logical design and Microsoft-cloud-ready during architecture mapping. Microsoft Fabric, Databricks, AKS, Azure Container Apps, API Management, Event Hubs, Service Bus, Microsoft 365, Copilot, Copilot Studio, and Microsoft Entra ID are candidates, not defaults. Material product choices require evidence and an architecture decision record (ADR).
 
@@ -9,7 +9,7 @@ The harness is product-independent through logical design and Microsoft-cloud-re
 Use the harness when a project needs to:
 
 - turn an incomplete business or technical scenario into a governed architecture;
-- keep business outcomes, requirements, design, products, implementation, operations, and evidence connected;
+- keep business outcomes, requirements, design, products, downstream implementation, operations, and evidence connected;
 - evaluate cloud platforms without selecting products before requirements are understood;
 - make security, resilience, sizing, cost, deployment, and operations part of the architecture process;
 - revisit only the affected work when an input, assumption, dependency, or decision changes; and
@@ -25,7 +25,7 @@ The repository is a starter, not a completed reference architecture. A new proje
 - Stable identifiers and canonical ownership rules.
 - Change-impact and task-level replay.
 - An ADR process and reusable ADR template.
-- Registers for assumptions, requirements, risks, gates, evidence, sizing, tests, and claims.
+- Registers for assumptions, requirements, risks, gates, external evidence, sizing, planned tests, and claims.
 - GitHub Copilot custom agents, portable agent skills, and VS Code prompt files.
 - A manifest-driven validator and GitHub Actions workflow.
 
@@ -107,9 +107,9 @@ The phases are progressive but not strictly sequential.
 | [01-preparation](01-preparation/) | Objectives, scope, deliverables, governance, and execution baseline | G0 | G0 | G1 |
 | [02-design](02-design/) | Product-independent logical design and measurable requirements | G1 | G1 | G2 |
 | [03-architecture](03-architecture/) | Capabilities, products, topology, dependencies, NFR realization, and decisions | G2 | G2 | G3 |
-| [04-implementation](04-implementation/) | Reproducible implementation and bounded evidence | G3 | G3 | G4 |
-| [05-sizing](05-sizing/) | Workload model, tests, capacity, cost, and scaling triggers | G2 | G3 and G4 | G5 |
-| [06-operations](06-operations/) | Service ownership, procedures, security operations, rollout, and continuity | G1 | G3, G4, and G5 | G6 |
+| [04-implementation](04-implementation/) | Implementation plan, stories, building blocks, code-generation context, and engineering handoff | G3 | G3 | G4 |
+| [05-sizing](05-sizing/) | Workload and cost model, observability requirements, and sizing validation plan | G2 | G3 and G4 | G5 |
+| [06-operations](06-operations/) | Operating model, procedure requirements, rollout, support, security operations, and continuity plans | G1 | G3, G4, and G5 | G6 |
 | [07-presentation](07-presentation/) | Traceable business, architecture, evidence, and decision story | G0 | G1-G6 | G7 |
 
 The distinction is important:
@@ -118,6 +118,32 @@ The distinction is important:
 - `exitGateRequires` identifies the prior gates required before the phase exit gate can be accepted.
 
 This permits early work on cost, operating responsibilities, and presentation evidence without claiming those phases are ready.
+
+## Architecture-to-engineering boundary
+
+The harness stops at an implementation-ready handoff.
+
+It creates:
+
+- an implementation plan and sequenced backlog;
+- user stories and acceptance scenarios;
+- functional building-block specifications;
+- environment, prototype/spike, release, deployment, migration, and test plans;
+- code-generation context packages;
+- workload, capacity, cost, and observability models;
+- an operating model and operational-readiness plan; and
+- a versioned handoff to a named downstream repository or engineering team.
+
+It does not create:
+
+- application or infrastructure code;
+- executable tests or pipelines;
+- cloud resources or deployments;
+- generated build or release artifacts;
+- executed prototypes, performance tests, or recovery exercises; or
+- implementation-complete, production-ready, or operating-effectiveness claims.
+
+The downstream implementation workflow owns execution. It returns material architecture conflicts, failed assumptions, new decisions, and relevant evidence through [04-implementation/49-implementation-handoff.md](04-implementation/49-implementation-handoff.md), [01-preparation/16-change-impact-register.md](01-preparation/16-change-impact-register.md), and [01-preparation/19-external-evidence-register.md](01-preparation/19-external-evidence-register.md).
 
 ## Phase-by-phase usage
 
@@ -196,54 +222,56 @@ Recommended agents:
 
 Microsoft cloud services in the templates are candidates. Select them only when their capabilities, limits, region, identity, networking, availability, lifecycle, support, licensing, cost, and portability fit the accepted requirements.
 
-### 04 - Implementation
+### 04 - Implementation planning and handoff
 
-**Goal:** produce a reproducible thin end-to-end implementation and bounded evidence.
+**Goal:** provide downstream engineering and code-generation workflows with complete, bounded, traceable implementation context.
 
 1. Convert accepted scope and decisions into the implementation backlog.
-2. Establish reproducible and isolated environments.
-3. Use experiments for material uncertainty.
-4. Implement a thin vertical slice before broadening layers.
-5. Automate build, policy, security checks, deployment, verification, rollback, reset, and evidence capture.
-6. Test normal, invalid, duplicate, unauthorized, dependency-failure, recovery, and acceptance paths.
-7. Index durable evidence in [04-implementation/48-evidence-index.md](04-implementation/48-evidence-index.md).
+2. Define user stories and functional building blocks.
+3. Plan environment prerequisites and security guardrails.
+4. Frame prototypes and spikes for material uncertainty.
+5. Specify release, deployment, migration, rollback, and supply-chain automation requirements.
+6. Define planned tests, success criteria, expected evidence, and downstream owners.
+7. Create bounded code-generation contexts in [04-implementation/46-code-generation-context.md](04-implementation/46-code-generation-context.md).
+8. Assemble the implementation package in [04-implementation/49-implementation-handoff.md](04-implementation/49-implementation-handoff.md).
 
 Recommended agent: **Engineering Manager**.
 
-Implement only accepted constraints or explicitly bounded experiments. If engineering discovers that an assumption or architecture decision is wrong, stop the affected work and use change-impact replay.
+The Engineering Manager edits plans and context only. It must not generate code, provision environments, run pipelines, execute tests, or claim downstream results. If engineering later discovers that an assumption or architecture decision is wrong, the handoff routes the finding back through change-impact replay.
 
 ### 05 - Sizing
 
-**Goal:** replace architectural guesses with traceable ranges and measured evidence.
+**Goal:** replace unbounded architectural guesses with traceable ranges, confidence, observability requirements, and a downstream validation plan.
 
 Sizing has two passes:
 
-1. **Indicative at G3:** build workload assumptions and compare candidate capacity and cost ranges.
-2. **Calibrated after G4:** use implementation measurements to refine capacity, performance, cost, and scaling triggers.
+1. **Architecture model:** build workload assumptions and compare candidate capacity and cost ranges.
+2. **Validation plan:** define the downstream tests and evidence needed to calibrate the model.
+3. **External calibration:** update assumptions and confidence when cited implementation or performance evidence becomes available.
 
 Include steady, peak, burst, seasonal, growth, retention, retry, replay, failure, recovery, redundancy, non-production, observability, security, licensing, support, and network effects where relevant.
 
 Recommended agent: **Sizing and FinOps Partner**.
 
-Never hide list-price assumptions, negotiated discounts, commitment models, currency, region, retrieval date, uncertainty, or exclusions.
+Never hide list-price assumptions, negotiated discounts, commitment models, currency, region, retrieval date, uncertainty, exclusions, or the absence of measured evidence. G5 approves the sizing model and validation plan, not demonstrated scale or cost.
 
 ### 06 - Operations
 
-**Goal:** show that accountable teams can operate, secure, change, recover, and retire the service.
+**Goal:** define how accountable teams should operate, secure, change, recover, and retire the service, and how readiness will be validated downstream.
 
 1. Assign service, product, engineering, data, security, support, and vendor responsibilities.
-2. Automate frequent and high-risk procedures with authorization, safety checks, rollback, and evidence.
-3. Operationalize identity, vulnerability, threat, incident, secret, key, certificate, data, and supply-chain controls.
+2. Specify automation requirements for frequent and high-risk procedures, including authorization, safety checks, rollback, and expected evidence.
+3. Define identity, vulnerability, threat, incident, secret, key, certificate, data, and supply-chain operating processes.
 4. Define rollout waves, migration, coexistence, validation, hypercare, rollback, and decommissioning.
-5. Exercise incident response, backup, restore, failover, reduced-capacity operation, and continuity.
+5. Plan incident response, backup, restore, failover, reduced-capacity, and continuity exercises with success criteria and downstream owners.
 
 Recommended agents:
 
 - **Operations Readiness Partner**
 - **Cloud Security Reviewer**
-- **Engineering Manager** for automation changes
+- **Engineering Manager** for implementation-handoff and automation requirements
 
-A written runbook is designed evidence. Operational readiness requires executed procedures and reviewed results in the intended scope.
+A written runbook or exercise plan is designed content. G6 confirms that the operating model and readiness plan are complete; it does not prove that procedures or recovery work in production.
 
 ### 07 - Presentation
 
@@ -271,9 +299,9 @@ The detailed roster and collaboration rules are in [AGENTS.md](AGENTS.md).
 | Solution Design Partner | Product-independent design and requirements |
 | Architecture Partner | Capabilities, product mapping, topology, dependencies, and NFR realization |
 | ADR Proposal Partner | Decision framing, research, alternatives, consequences, and proposed ADRs |
-| Engineering Manager | Backlog, environments, experiments, code, automation, tests, and evidence |
-| Sizing and FinOps Partner | Workload, telemetry, performance, capacity, cost, and sensitivity |
-| Operations Readiness Partner | Service ownership, procedures, rollout, support, security operations, and continuity |
+| Engineering Manager | Implementation plan, backlog, stories, functional building blocks, environment/release/test plans, code-generation context, and handoff |
+| Sizing and FinOps Partner | Workload and cost model, telemetry requirements, sensitivity, scaling triggers, and validation plan |
+| Operations Readiness Partner | Operating model, service ownership, procedure specifications, rollout, support, security operations, and continuity plans |
 | Cloud Security Reviewer | Read-only security and threat review |
 
 ### Example agent prompts
@@ -305,9 +333,11 @@ Do not accept the decision.
 Plan implementation:
 
 ```text
-Convert the accepted vertical slice into the smallest evidence-producing
-implementation increment. Define dependencies, guardrails, tests, environment,
-rollback, evidence, and production delta.
+Convert the accepted vertical slice into an implementation-ready handoff.
+Define user stories, functional building blocks, dependencies, guardrails,
+environment and release plans, code-generation contexts, planned tests,
+expected evidence, receiving repository, and change-feedback path.
+Do not generate code or execute implementation.
 ```
 
 Prepare a gate:
@@ -344,8 +374,8 @@ source or assumption
   -> goal, objective, and scope
   -> requirement and design
   -> capability, architecture, and ADR
-  -> implementation item and test
-  -> evidence
+  -> implementation item, building block, context, and planned test
+  -> external evidence or explicit evidence gap
   -> presentation claim
 ```
 
@@ -361,8 +391,8 @@ Use the evidence classes consistently:
 | Proposal | Candidate direction awaiting decision |
 | Accepted decision | Choice recorded by the named authority |
 | Designed | Specified but not executed |
-| Demonstrated | Executed under stated test conditions |
-| Operational evidence | Observed in the intended live operating context |
+| Demonstrated | Executed under stated conditions by a cited downstream or external source |
+| Operational evidence | Observed in the intended live operating context by a cited external source |
 | Future commitment | Planned work with ownership and dependencies |
 
 ## Architecture decisions
@@ -450,7 +480,7 @@ Safe customizations include:
 - adding assurance, privacy, regulatory, safety, or model-risk roles and artifacts;
 - extending identifier prefixes in [architecture-harness.json](architecture-harness.json);
 - adding specialist agents or skills for recurring project workflows; and
-- adding implementation-specific source, infrastructure, tests, and runbooks.
+- adding specialist context templates for downstream repositories without adding their source, infrastructure, pipelines, or executable tests.
 
 When adding or removing a required starter artifact:
 
@@ -471,7 +501,7 @@ The harness does not require an AI agent. A team can use the same process manual
 2. assign the accountable role;
 3. update the canonical artifact;
 4. review against the completion check;
-5. attach evidence;
+5. attach review evidence, expected evidence, or cited external evidence;
 6. run validation; and
 7. prepare the gate recommendation.
 
@@ -489,9 +519,9 @@ Agents accelerate discovery, consistency checking, and drafting. Human owners re
 01-preparation/ Objectives, scope, governance, changes, gates, and risks
 02-design/      Product-independent design and requirements
 03-architecture/Capabilities, cloud mapping, topology, NFRs, and ADRs
-04-implementation/Backlog, environments, automation, tests, and evidence
-05-sizing/      Workload, observability, performance, capacity, and cost
-06-operations/  Ownership, procedures, security operations, rollout, continuity
+04-implementation/Planning, stories, building blocks, contexts, and handoff
+05-sizing/      Workload/cost model, observability, and validation plan
+06-operations/  Operating model, procedure specifications, rollout, continuity
 07-presentation/Business value, architecture views, operating model, and claims
 scripts/        Repository validation
 ```

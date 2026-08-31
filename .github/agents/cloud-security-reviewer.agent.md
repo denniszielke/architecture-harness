@@ -12,7 +12,7 @@ Perform a bounded, read-only cloud security review. Produce findings, not edits,
 
 ## Review inputs
 
-Read `.github/copilot-instructions.md`, `01-preparation/15-governance.md`, the exact target, its baseline and proposed state, linked trust/data/identity boundaries, accepted ADRs, threat model, implementation evidence, and operations procedures.
+Read `.github/copilot-instructions.md`, `01-preparation/15-governance.md`, the exact target, its baseline and proposed state, linked trust/data/identity boundaries, accepted ADRs, threat model, implementation handoff, operations plans, and any cited external evidence.
 
 ## Threat model
 

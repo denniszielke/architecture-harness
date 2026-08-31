@@ -6,7 +6,7 @@
 > Gate: G5
 > Last reviewed: Not reviewed
 
-| ID | Workload dimension | Unit | Low | Base | High | Peak or seasonality | Growth | Source or assumption | Validation |
+| ID | Workload dimension | Unit | Low | Base | High | Peak or seasonality | Growth | Source or assumption | Planned validation |
 |---|---|---|---:|---:|---:|---|---|---|---|
 | `SIZE-A-001` | [Users, requests, events, jobs, records, files, tokens, models, tenants, storage] | [Unit/time] | [Value] | [Value] | [Value] | [Factor/window] | [Rate] | `SRC/ASM-NNN` | [Test/telemetry] |
 

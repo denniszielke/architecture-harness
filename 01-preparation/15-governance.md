@@ -66,8 +66,8 @@ Use role placeholders until named people are provided. Never invent assignments.
 | Proposal | Candidate direction awaiting decision |
 | Accepted decision | Recorded authority accepted a choice |
 | Designed | Specified but not executed |
-| Demonstrated | Executed under stated test conditions |
-| Operational evidence | Observed in the intended live operating context |
+| Demonstrated | Executed under stated test conditions by a cited external source or downstream workflow |
+| Operational evidence | Observed in the intended live operating context by a cited external source |
 | Future commitment | Planned work with ownership and dependencies |
 
 ## Traceability chain
@@ -77,7 +77,7 @@ SRC/ASM -> GOAL/OBJ/SCP -> CAP/REQ/DES/NFR
         -> ADR/control/RISK -> TASK/IMP -> TEST/EVID -> CLAIM
 ```
 
-Not every record needs every link. Every implemented item and presentation claim must trace backward to an approved need and forward to evidence or an explicit gap.
+Not every record needs every link. Every implementation-handoff item and presentation claim must trace backward to an approved need and forward to expected evidence, cited external evidence, or an explicit gap.
 
 ## Canonical record owners
 
@@ -92,13 +92,28 @@ Not every record needs every link. Every implemented item and presentation claim
 | Phase task | The owning phase plan using `TASK-<phase>-NN` |
 | Implementation item | `04-implementation/41-backlog.md` |
 | User story | `04-implementation/45-user-stories.md` |
+| Functional building block | `04-implementation/48-functional-building-blocks.md` |
+| Code-generation context | `04-implementation/46-code-generation-context.md` |
+| Implementation handoff | `04-implementation/49-implementation-handoff.md` |
 | Implementation test (`TEST-IMP`) | `04-implementation/47-test-and-validation.md` |
 | Sizing test (`TEST-SIZE`) | `05-sizing/53-sizing-tests.md` |
 | Operational test or exercise (`TEST-OPS`) | `06-operations/65-service-management-and-continuity.md` |
-| Evidence | `04-implementation/48-evidence-index.md` |
+| External evidence | `01-preparation/19-external-evidence-register.md` |
 | Presentation claim | `07-presentation/75-claim-and-evidence-register.md` |
 
-Tests use phase namespaces: `TEST-IMP-NNN`, `TEST-SIZE-NNN`, and `TEST-OPS-NNN`. The phase register owns the test definition; [the evidence index](../04-implementation/48-evidence-index.md) owns result metadata and stable evidence links.
+Tests use phase namespaces: `TEST-IMP-NNN`, `TEST-SIZE-NNN`, and `TEST-OPS-NNN`. The phase register owns the test plan. The [external evidence register](19-external-evidence-register.md) references results produced outside the architecture harness.
+
+## Architecture-to-engineering boundary
+
+The harness owns architecture definition and implementation context. It may specify:
+
+- implementation scope, backlog, user stories, and functional building blocks;
+- environment, release, deployment, migration, test, and operational requirements;
+- code-generation context and prohibited decisions;
+- sizing models and validation plans; and
+- operating models, procedures, rollout, recovery, and readiness plans.
+
+The downstream implementation workflow owns source code, infrastructure code, pipelines, deployments, test execution, generated artifacts, releases, and measured implementation or operating results. Link relevant results back as external evidence; do not copy delivery artifacts into this repository.
 
 ## Change control
 

@@ -11,7 +11,7 @@ Update the artifact that owns a fact, assumption, requirement, decision, design 
 
 ## 2. Evidence classes
 
-Keep source fact, assumption, target, proposal, accepted decision, designed behavior, demonstrated result, operational evidence, and future commitment distinct.
+Keep source fact, assumption, target, proposal, accepted decision, designed behavior, demonstrated result, operational evidence, and future commitment distinct. Demonstrated and operational evidence must cite the external or downstream source that produced it.
 
 ## 3. Safe update order
 

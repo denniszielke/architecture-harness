@@ -16,11 +16,11 @@
 | Commercial model | [List/reservation/commitment/agreement assumptions] |
 | Environments included | [List] |
 | Tax, support, people, and contingency treatment | [Included/excluded] |
-| Estimate maturity | Indicative at G3 / Calibrated after G4 |
+| Estimate maturity | Architecture estimate / externally calibrated when evidence is available |
 
 ## Capacity estimate
 
-| Capability or service | Scale unit | Low | Base | High | Redundancy/headroom | Scale trigger | Evidence |
+| Capability or service | Scale unit | Low | Base | High | Redundancy/headroom | Scale trigger | Source or external evidence |
 |---|---|---:|---:|---:|---|---|---|
 | [Capability/service] | [Unit] | [Value] | [Value] | [Value] | [Factor] | [Metric] | [Test/source] |
 
@@ -42,4 +42,4 @@
 |---|---|---|---|---|
 | [Volume, retention, tokens, region, tier, availability, egress, license] | [+/-] | [Effect] | [Trigger] | [Action/ADR] |
 
-Costs are estimates, not commitments. The G3 indicative estimate owns early product and topology comparisons; replace its assumptions with G4 measurements rather than creating a second cost model. Preserve source date, commercial exclusions, uncertainty, and the difference between measured and extrapolated usage.
+Costs are estimates, not commitments. The same canonical model supports G3 product comparisons and the G5 handoff. When external implementation or performance evidence becomes available, update its assumptions and confidence through change control rather than creating a second model. Preserve source date, commercial exclusions, uncertainty, and the difference between sourced, assumed, and externally measured values.

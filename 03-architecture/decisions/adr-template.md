@@ -92,4 +92,4 @@
 - Objectives and scope: [IDs/links]
 - Design and NFRs: [IDs/links]
 - Risks and dependencies: [IDs/links]
-- Implementation and tests: [IDs/links]
+- Implementation handoff and planned tests: [IDs/links]

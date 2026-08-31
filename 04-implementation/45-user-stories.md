@@ -18,13 +18,13 @@
 
 **Acceptance scenarios**
 
-| Scenario | Given | When | Then | Evidence |
+| Scenario | Given | When | Then | Planned test |
 |---|---|---|---|---|
-| Normal | [Context] | [Action] | [Outcome] | `TEST/EVID-NNN` |
-| Unauthorized | [Context] | [Action] | [Denied and audited behavior] | `TEST/EVID-NNN` |
-| Invalid or duplicate | [Context] | [Action] | [Safe behavior] | `TEST/EVID-NNN` |
-| Dependency unavailable | [Context] | [Action] | [Degraded/fallback behavior] | `TEST/EVID-NNN` |
-| Recovery or correction | [Context] | [Action] | [Reconciled behavior] | `TEST/EVID-NNN` |
+| Normal | [Context] | [Action] | [Outcome] | `TEST-IMP-NNN` |
+| Unauthorized | [Context] | [Action] | [Denied and audited behavior] | `TEST-IMP-NNN` |
+| Invalid or duplicate | [Context] | [Action] | [Safe behavior] | `TEST-IMP-NNN` |
+| Dependency unavailable | [Context] | [Action] | [Degraded/fallback behavior] | `TEST-IMP-NNN` |
+| Recovery or correction | [Context] | [Action] | [Reconciled behavior] | `TEST-IMP-NNN` |
 
 **Non-functional acceptance**
 
@@ -33,3 +33,7 @@
 **Out of scope**
 
 - [Explicit exclusion.]
+
+**Functional building blocks:** `FBB-NNN`
+
+**Code-generation contexts:** `CTX-NNN`

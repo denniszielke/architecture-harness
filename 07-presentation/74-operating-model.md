@@ -25,8 +25,8 @@ Plan -> decide -> build -> verify -> release -> observe
 
 ## Readiness proof
 
-| Concern | Designed | Demonstrated | Operational evidence | Remaining gap |
+| Concern | Harness plan | Cited downstream demonstration | Cited operational evidence | Remaining gap |
 |---|---|---|---|---|
 | Ownership, deployment, security, monitoring, incident, recovery, capacity, cost, continuity | [Link] | [Link] | [Link] | [Gap] |
 
-Source detail from [../06-operations/](../06-operations/) and sizing evidence. Do not claim operational readiness from a written runbook alone.
+Source detail from [../06-operations/](../06-operations/), the sizing model, and the [external evidence register](../01-preparation/19-external-evidence-register.md). Present G6 as operating-model and readiness-plan status; do not imply that a written runbook proves operating effectiveness.

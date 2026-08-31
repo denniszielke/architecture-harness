@@ -6,6 +6,7 @@
 - Treat `01-preparation/15-governance.md` as the canonical source for lifecycle, accountability, evidence classes, traceability, change control, and gate rules.
 - Treat `01-preparation/16-change-impact-register.md` as the canonical change and replay record.
 - Treat `01-preparation/17-gate-register.md` as the canonical gate record.
+- Treat `01-preparation/19-external-evidence-register.md` as the index of evidence produced outside the architecture harness.
 - Treat each phase plan as the owner of that phase's tasks, dependencies, outputs, completion checks, and replay rules.
 - In `architecture-harness.json`, `mayStartAfter` controls when useful phase work may begin; `exitGateRequires` controls which prior gates must be satisfied before the phase exit gate can be accepted.
 
@@ -30,12 +31,12 @@ Never present one class as another. Do not invent facts, owners, approvals, acce
 | Folder | Content it owns |
 |---|---|
 | `00-framing/` | Source context, vision, assumptions, scenario, and business goals |
-| `01-preparation/` | Narrative, objectives, scope, deliverables, governance, change impacts, and gates |
+| `01-preparation/` | Narrative, objectives, scope, deliverables, governance, change impacts, gates, risks, and external evidence references |
 | `02-design/` | Product-independent logical behavior and bounded domain designs |
 | `03-architecture/` | Capabilities, functional architecture, product mapping, topology, dependencies, NFR realization, and ADRs |
-| `04-implementation/` | Backlog, environments, experiments, stories, code generation, automation, tests, and implementation evidence |
-| `05-sizing/` | Workload assumptions, observability, sizing tests, capacity, and cost |
-| `06-operations/` | Service ownership, procedures, security operations, rollout, support, and continuity |
+| `04-implementation/` | Implementation plan, backlog, stories, functional building blocks, environment/release/test plans, code-generation context, and handoff |
+| `05-sizing/` | Workload assumptions, observability requirements, sizing model, validation plan, capacity, and cost |
+| `06-operations/` | Operating model, service ownership, procedure specifications, security operations, rollout, support, and continuity plans |
 | `07-presentation/` | Decision-focused synthesis linked to canonical facts and evidence |
 
 Before adding an artifact, search for an existing canonical owner. Extend or link instead of duplicating content. Use lowercase, hyphenated filenames and preserve numeric phase prefixes for phase-owned artifacts.
@@ -79,14 +80,15 @@ An ADR is required for material trust, tenant, region, jurisdiction, data, ident
 - Keep platform and workload responsibilities explicit.
 - Prefer modular boundaries, versioned contracts, reproducible automation, safe failure, and bounded blast radius.
 
-## Implementation and evidence
+## Implementation handoff boundary
 
-- Implement accepted scope and decisions or explicitly bounded experiments.
-- Build a thin end-to-end path before broadening layers.
-- Never commit credentials or sensitive source data.
-- Reuse repository patterns and keep generated code typed, testable, observable, and replaceable.
-- Record environment, data, version, configuration, method, actual result, and limitation for every claimed result.
-- A prototype cannot prove production scale, compliance, resilience, or operational effectiveness.
+- Decompose accepted architecture into a thin end-to-end backlog, user stories, functional building blocks, planned tests, and bounded context packages.
+- Define environment, release, deployment, migration, security, observability, recovery, sizing, and operating expectations.
+- Do not create or modify application code, infrastructure code, pipelines, cloud resources, generated artifacts, releases, or implementation test results in this harness.
+- Route code generation and delivery to a downstream implementation repository or workflow.
+- Treat unresolved material decisions as blockers rather than asking a coding agent to decide implicitly.
+- Record downstream evidence by reference with provenance, conditions, result, and limitation.
+- G4, G5, and G6 approve plans and handoffs, not implementation completion, demonstrated scale, or operating effectiveness.
 
 ## Validation
 

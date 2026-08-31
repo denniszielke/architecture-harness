@@ -15,7 +15,7 @@ Turn approved objectives, scope, journeys, and constraints into a coherent produ
 
 - Design owns logical behavior and responsibilities.
 - Architecture owns product selection, deployment topology, and long-lived technical choices.
-- Implementation owns executable realization and evidence.
+- The implementation-handoff phase owns downstream planning and context; the downstream implementation workflow owns executable realization and results.
 - A product may appear in design only as a candidate or inherited constraint with a linked decision.
 
 ## Work packages

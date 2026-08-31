@@ -9,9 +9,9 @@ The custom agents in [.github/agents](.github/agents/) are role-focused facilita
 | Solution Design Partner | Product-independent high-level and domain design | Raises material choices to ADR Proposal Partner and architecture mapping to Architecture Partner |
 | Architecture Partner | Capabilities, product mapping, topology, NFR architecture, operating arrangements | Hands accepted architecture constraints to Engineering Manager, Sizing, and Operations |
 | ADR Proposal Partner | Decision framing, evidence, alternatives, consequences, and ADR proposal/index | Returns proposal for human decision and downstream propagation |
-| Engineering Manager | Implementation scope, backlog, environments, automation, code generation, tests, and evidence | Supplies implementation evidence to Sizing and Operations |
-| Sizing and FinOps Partner | Workload model, experiments, capacity, cost, and sensitivity | Supplies validated estimates to Operations and Presentation |
-| Operations Readiness Partner | Service ownership, procedures, security operations, rollout, continuity, and G6 readiness | Supplies operational evidence to Presentation |
+| Engineering Manager | Implementation plan, backlog, stories, functional building blocks, environment/release/test plans, code-generation context, and handoff | Supplies implementation context to downstream engineering, Sizing, and Operations |
+| Sizing and FinOps Partner | Workload model, observability requirements, capacity/cost estimate, sensitivity, and validation plan | Supplies the sizing model and downstream validation obligations |
+| Operations Readiness Partner | Operating model, service ownership, procedure specifications, security operations, rollout, continuity, and G6 planning | Supplies the operating model and readiness plan to the implementation handoff and Presentation |
 | Cloud Security Reviewer | Read-only threat, identity, data protection, platform, supply-chain, and operational security review | Reports blockers and controls to the canonical phase owner |
 
 ## Collaboration rules
@@ -20,8 +20,8 @@ The custom agents in [.github/agents](.github/agents/) are role-focused facilita
 2. The Preparation Foundation may change framing or preparation only when the user authorizes the foundational change.
 3. The Solution Design Partner remains product-independent except when naming candidates that require an ADR.
 4. The Architecture Partner cannot convert a proposed ADR into an accepted decision.
-5. The Engineering Manager implements only accepted scope and decisions or explicitly bounded experiments.
-6. Sizing and operations begin early, but their gates require measured implementation evidence.
+5. The Engineering Manager creates planning and context artifacts only; code generation and implementation occur downstream.
+6. Sizing and operations begin early and define validation obligations; their gates do not claim downstream execution.
 7. The Cloud Security Reviewer remains read-only and reports to the artifact owner.
 8. Presentation artifacts summarize and link; they do not become canonical sources for technical facts.
 
@@ -33,9 +33,9 @@ Preparation Foundation: build or refresh the framing and preparation baseline fr
 Solution Design Partner: develop the next bounded logical design concern.
 ADR Proposal Partner: frame ADR-NNN and compare credible alternatives.
 Architecture Partner: map the accepted design to a target cloud architecture.
-Engineering Manager: convert the accepted slice into an evidence-producing implementation plan.
-Sizing and FinOps Partner: validate the workload and cost model with implementation evidence.
-Operations Readiness Partner: prepare the G6 operating model and readiness evidence.
+Engineering Manager: convert the accepted slice into an implementation-ready handoff and code-generation context.
+Sizing and FinOps Partner: create the workload, capacity, cost, and validation model.
+Operations Readiness Partner: prepare the G6 operating model and operational-readiness plan.
 Program Orchestrator: prepare the next gate review and impact-replay status.
 ```
 

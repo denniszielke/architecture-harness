@@ -6,9 +6,9 @@
 > Gate: G5 and G6
 > Last reviewed: Not reviewed
 
-This artifact owns measurable signals and unit metrics. The design and NFR artifacts own required behavior; operations owns alert response and service procedures.
+This artifact owns planned measurable signals and unit metrics. The design and NFR artifacts own required behavior; operations owns the response plan; downstream implementation owns telemetry configuration and observed data.
 
-| Metric ID | Signal | Purpose | Source | Dimensions | Target or threshold | Retention | Owner | Action |
+| Metric ID | Signal | Purpose | Planned source | Dimensions | Target or threshold | Retention | Downstream owner | Planned action |
 |---|---|---|---|---|---|---|---|---|
 | `MET-001` | [Metric/log/trace/audit/business event] | [SLO, sizing, security, cost, quality] | [Component] | [Safe dimensions] | [Threshold] | [Period] | [Role] | [Runbook/scale action] |
 

@@ -6,7 +6,7 @@
 > Gate: G2
 > Last reviewed: Not reviewed
 
-This artifact owns product-independent requirement and quality statements. Architecture maps them to mechanisms; implementation maps them to work and evidence.
+This artifact owns product-independent requirement and quality statements. Architecture maps them to mechanisms; the implementation handoff maps them to planned work, building blocks, tests, and expected evidence.
 
 ## Functional and design requirements
 
@@ -25,6 +25,6 @@ This artifact owns product-independent requirement and quality statements. Archi
 
 - Requirements state observable need, not an implementation product.
 - Mandatory constraints remain explicit and cannot be traded away through a weighted score.
-- Every requirement links backward to an approved need and forward to design, architecture, implementation, test, or an evidence gap.
+- Every requirement links backward to an approved need and forward to design, architecture, implementation context, a planned test, external evidence, or an evidence gap.
 - A changed requirement starts impact replay and may require a superseding ADR or gate reassessment.
-- Architecture realization belongs in [../03-architecture/35-non-functional-architecture.md](../03-architecture/35-non-functional-architecture.md); test results belong in implementation evidence.
+- Architecture realization belongs in [../03-architecture/35-non-functional-architecture.md](../03-architecture/35-non-functional-architecture.md); test plans belong in the implementation handoff and results remain in downstream evidence stores.

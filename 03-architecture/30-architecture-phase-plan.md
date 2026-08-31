@@ -4,7 +4,7 @@
 > Canonical owner: Solution or enterprise architect - name to be assigned
 > Required reviewers: Data, platform, security, engineering, operations, test, and FinOps owners
 > Entry gate: G2 - Logical design ready for architecture
-> Exit gate: G3 - Architecture ready for implementation
+> Exit gate: G3 - Architecture ready for implementation planning
 > Last reviewed: Not reviewed
 
 ## Purpose
@@ -25,7 +25,7 @@ Review the architecture across security, reliability, operational excellence, pe
 | `TASK-ARC-04` | Analyze dependencies | `TASK-ARC-02`, `TASK-ARC-03` | [34-functional-dependencies.md](34-functional-dependencies.md) | Critical, optional, organizational, and external dependencies are visible | Not started | Not available |
 | `TASK-ARC-05` | Realize NFRs | `TASK-ARC-03`, `TASK-ARC-04` | [35-non-functional-architecture.md](35-non-functional-architecture.md) | Quality attributes map to mechanisms and tests | Not started | Not available |
 | `TASK-ARC-06` | Resolve blocking decisions | `TASK-ARC-03`-`TASK-ARC-05` | ADR proposals and decisions | Blocking choices have actual authority outcomes or explicit gate conditions | Not started | Not available |
-| `TASK-ARC-07` | Prepare G3 review | `TASK-ARC-01`-`TASK-ARC-06` | Gate recommendation | Implementation boundaries, risks, proof obligations, and unresolved items are clear | Not started | Not available |
+| `TASK-ARC-07` | Prepare G3 review | `TASK-ARC-01`-`TASK-ARC-06` | Gate recommendation | Implementation-planning boundaries, risks, validation obligations, and unresolved items are clear | Not started | Not available |
 
 ## G3 criteria
 
@@ -36,7 +36,7 @@ Review the architecture across security, reliability, operational excellence, pe
 - Deployment, configuration, promotion, rollback, backup, recovery, and decommissioning are defined.
 - Indicative capacity, cost range, sensitivity, and major cost drivers inform product and topology decisions.
 - Blocking ADRs have valid decisions or explicit gate conditions.
-- Implementation, sizing, security, and operations proof obligations are linked.
+- Implementation-handoff, sizing, security, and operations validation obligations are linked.
 - Prototype architecture and target production architecture are visibly different where needed.
 
 ## Input change and replay

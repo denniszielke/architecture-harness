@@ -6,7 +6,7 @@
 > Gate: G6
 > Last reviewed: Not reviewed
 
-This artifact operationalizes the target delivery topology and release design. Architecture owns the target pattern; implementation owns pipeline behavior; this artifact owns rollout waves, operational authorization, migration, communication, and hypercare.
+This artifact defines the target rollout and deployment operating model. Architecture owns the target pattern; the implementation handoff owns pipeline requirements; downstream delivery owns pipeline behavior and execution. This artifact owns planned rollout waves, operational authorization, migration, communication, validation, and hypercare.
 
 ## Rollout units
 
@@ -14,7 +14,7 @@ This artifact operationalizes the target delivery topology and release design. A
 |---|---|---|---|---|---|---|
 | [Pilot/wave/tenant/region/user group] | [Scope] | [Criteria] | [Blue-green/canary/ring/in-place] | [Checks] | [Trigger] | [Role] |
 
-## Readiness per wave
+## Planned readiness per wave
 
 - Environment, quota, license, identity, network, policy, data, backup, support, and training readiness.
 - Version and compatibility across infrastructure, application, schema, data, integration, model, prompt, and configuration.
@@ -25,8 +25,10 @@ This artifact operationalizes the target delivery topology and release design. A
 
 ## Migration and coexistence
 
-[Define data migration, reconciliation, dual run, cutover, compatibility, source-of-truth changes, decommissioning, and evidence.]
+[Define data migration, reconciliation, dual run, cutover, compatibility, source-of-truth changes, decommissioning, expected evidence, and downstream ownership.]
 
 ## Failed rollout
 
 [Define stop authority, containment, rollback, user communication, data correction, incident linkage, and criteria to retry.]
+
+Rollout execution and results remain in the downstream delivery and operations systems.
