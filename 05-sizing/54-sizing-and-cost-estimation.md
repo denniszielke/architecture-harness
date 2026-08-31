@@ -20,15 +20,15 @@
 
 ## Capacity estimate
 
-| Capability or service | Scale unit | Low | Base | High | Redundancy/headroom | Scale trigger | Source or external evidence |
-|---|---|---:|---:|---:|---|---|---|
-| [Capability/service] | [Unit] | [Value] | [Value] | [Value] | [Factor] | [Metric] | [Test/source] |
+| ID | Realization/product | Capability or service | Scale unit | Low | Base | High | Redundancy/headroom | Scale trigger | Source or external evidence |
+|---|---|---|---|---:|---:|---:|---|---|---|
+| `CAPEST-001` | `REAL/PROD-NNN` | [Capability/service] | [Unit] | [Value] | [Value] | [Value] | [Factor] | [Metric] | [Test/source] |
 
 ## Cost estimate
 
-| Cost category | Driver | Unit rate | Quantity | Low | Base | High | Optimization lever |
-|---|---|---:|---:|---:|---:|---:|---|
-| [Compute/data/integration/AI/network/observability/security/backup/license/support] | [Driver] | [Rate] | [Quantity] | [Cost] | [Cost] | [Cost] | [Lever] |
+| ID | Realization/product | Cost category | Driver | Unit rate | Quantity | Low | Base | High | Optimization lever |
+|---|---|---|---|---:|---:|---:|---:|---:|---|
+| `COST-001` | `REAL/PROD-NNN` | [Compute/data/integration/AI/network/observability/security/backup/license/support] | [Driver] | [Rate] | [Quantity] | [Cost] | [Cost] | [Cost] | [Lever] |
 
 ## Unit economics
 

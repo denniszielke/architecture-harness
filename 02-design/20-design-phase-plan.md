@@ -33,6 +33,7 @@ Turn approved objectives, scope, journeys, and constraints into a coherent produ
 ## G2 criteria
 
 - The thin end-to-end journey covers normal, exceptional, degraded, and recovery paths.
+- Every in-scope scenario step maps to requirements, logical components, decisions, handoffs, failure behavior, and measurable outcomes.
 - Logical components have non-overlapping responsibilities and authoritative state.
 - Data ownership, contracts, classification, lineage, retention, and quality are specified.
 - API, event, message, batch, and human handoffs include failure and replay behavior.

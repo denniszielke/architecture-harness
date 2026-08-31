@@ -24,7 +24,7 @@ Translate accepted scope, design, architecture, and decisions into an implementa
 
 | Task ID | Task | Depends on | Output | Complete when | Status | Evidence |
 |---|---|---|---|---|---|---|
-| `TASK-IMP-01` | Baseline implementation scope and backlog | G3 package | [41-backlog.md](41-backlog.md) | Work traces to accepted scope, design, ADRs, NFRs, and acceptance | Not started | Not available |
+| `TASK-IMP-01` | Baseline implementation scope and backlog | G3 package and realization map | [41-backlog.md](41-backlog.md) | Work traces to accepted scope, capability realization, products, design, ADRs, NFRs, and acceptance | Not started | Not available |
 | `TASK-IMP-02` | Define environment prerequisites and guardrails | `TASK-IMP-01` | [42-environment-setup.md](42-environment-setup.md) | Each environment has a purpose, boundary, prerequisites, controls, and validation plan | Not started | Not available |
 | `TASK-IMP-03` | Frame prototypes and spikes | `TASK-IMP-01` | [43-prototypes.md](43-prototypes.md) | Each material uncertainty has a bounded downstream experiment plan | Not started | Not available |
 | `TASK-IMP-04` | Define user stories and functional building blocks | `TASK-IMP-01` | [45-user-stories.md](45-user-stories.md), [48-functional-building-blocks.md](48-functional-building-blocks.md) | Stories and building blocks form a complete, traceable thin slice | Not started | Not available |
@@ -37,6 +37,7 @@ Translate accepted scope, design, architecture, and decisions into an implementa
 ## G4 criteria
 
 - The implementation backlog is sequenced, owned, and traceable to accepted architecture.
+- Buy, configure, reuse, integrate, and retire work is distinguished from custom build work.
 - User stories and functional building blocks define responsibilities, contracts, data, identities, failure behavior, NFRs, observability, operating ownership, and acceptance.
 - Environment prerequisites and security guardrails are implementation-ready.
 - Prototype and spike plans resolve named uncertainties without claiming execution.
@@ -51,6 +52,7 @@ Translate accepted scope, design, architecture, and decisions into an implementa
 | Changed input | Rerun first | Then inspect |
 |---|---|---|
 | Scope, design, capability, or accepted ADR | `TASK-IMP-01`, `TASK-IMP-04` | Context packages, tests, release, sizing, operations |
+| Capability realization or required product | `TASK-IMP-01`, `TASK-IMP-04`, `TASK-IMP-06` | Backlog, custom blocks, product configuration, effort, cost, handoff |
 | Environment, service tier, or policy | `TASK-IMP-02` | Deployment plan, security, sizing, operating procedures |
 | New or changed uncertainty | `TASK-IMP-03` | ADR evidence plan, sizing validation, downstream backlog |
 | Contract or data model | `TASK-IMP-04` | Stories, context packages, migration, test plan |

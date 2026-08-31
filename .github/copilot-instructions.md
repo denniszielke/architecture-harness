@@ -7,6 +7,8 @@
 - Treat `01-preparation/16-change-impact-register.md` as the canonical change and replay record.
 - Treat `01-preparation/17-gate-register.md` as the canonical gate record.
 - Treat `01-preparation/19-external-evidence-register.md` as the index of evidence produced outside the architecture harness.
+- Treat `03-architecture/37-capability-realization.md` as the canonical buy, configure, build, reuse, integrate, or retire mapping and required product inventory.
+- Treat `07-presentation/76-validated-scenario.md` as the final integrated delivery; it must link to canonical sources rather than duplicate them.
 - Treat each phase plan as the owner of that phase's tasks, dependencies, outputs, completion checks, and replay rules.
 - In `architecture-harness.json`, `mayStartAfter` controls when useful phase work may begin; `exitGateRequires` controls which prior gates must be satisfied before the phase exit gate can be accepted.
 
@@ -33,11 +35,11 @@ Never present one class as another. Do not invent facts, owners, approvals, acce
 | `00-framing/` | Source context, vision, assumptions, scenario, and business goals |
 | `01-preparation/` | Narrative, objectives, scope, deliverables, governance, change impacts, gates, risks, and external evidence references |
 | `02-design/` | Product-independent logical behavior and bounded domain designs |
-| `03-architecture/` | Capabilities, functional architecture, product mapping, topology, dependencies, NFR realization, and ADRs |
+| `03-architecture/` | Capabilities, functional architecture, capability realization, required products, topology, dependencies, NFR realization, and ADRs |
 | `04-implementation/` | Implementation plan, backlog, stories, functional building blocks, environment/release/test plans, code-generation context, and handoff |
-| `05-sizing/` | Workload assumptions, observability requirements, sizing model, validation plan, capacity, and cost |
+| `05-sizing/` | Workload assumptions, observability requirements, sizing model, validation plan, delivery effort, cloud/service cost, and confidence |
 | `06-operations/` | Operating model, service ownership, procedure specifications, security operations, rollout, support, and continuity plans |
-| `07-presentation/` | Decision-focused synthesis linked to canonical facts and evidence |
+| `07-presentation/` | Architecture-validated scenario and decision-focused synthesis linked to canonical facts and evidence |
 
 Before adding an artifact, search for an existing canonical owner. Extend or link instead of duplicating content. Use lowercase, hyphenated filenames and preserve numeric phase prefixes for phase-owned artifacts.
 
@@ -74,6 +76,8 @@ An ADR is required for material trust, tenant, region, jurisdiction, data, ident
 
 - Logical design remains product-independent. The starter is Microsoft-cloud-ready, but a fork may substitute another cloud ecosystem.
 - Trace products such as Microsoft Fabric, Databricks, AKS, Azure Container Apps, API Management, Event Hubs, Service Bus, Microsoft 365, Copilot, Copilot Studio, and Microsoft Entra ID to approved requirements and credible comparisons.
+- Map every in-scope capability to one bounded realization strategy: buy, configure, build, reuse, integrate, or retire.
+- Identify every required product or service with its tier, scope, commercial model, cost driver, support lifecycle, owner, and governing ADR.
 - Check current region, quota, limit, identity, networking, encryption, lifecycle, licensing, support, availability, and cost evidence.
 - Define human, workload, deployment, agent, privileged, and emergency identities.
 - Design security, privacy, observability, resilience, operations, cost, portability, and retirement with each capability.
@@ -89,6 +93,21 @@ An ADR is required for material trust, tenant, region, jurisdiction, data, ident
 - Treat unresolved material decisions as blockers rather than asking a coding agent to decide implicitly.
 - Record downstream evidence by reference with provenance, conditions, result, and limitation.
 - G4, G5, and G6 approve plans and handoffs, not implementation completion, demonstrated scale, or operating effectiveness.
+
+## Ultimate delivery
+
+The final G7 package must answer:
+
+- how each in-scope business scenario step is achieved;
+- which capabilities are required;
+- whether each capability is bought, configured, built, reused, integrated, or retired;
+- which products, services, tiers, licenses, and custom functional building blocks are required;
+- the low, base, and high delivery effort by role and wave;
+- the low, base, and high cloud/service cost with commercial assumptions;
+- who owns and operates each realized capability; and
+- which parts are architecture-validated, conditional, blocked, or supported by external evidence.
+
+Do not mark the scenario architecture-validated while any in-scope step lacks realization, product/build mapping, effort, cost, operating ownership, or an explicit blocker.
 
 ## Validation
 

@@ -73,8 +73,9 @@ Use role placeholders until named people are provided. Never invent assignments.
 ## Traceability chain
 
 ```text
-SRC/ASM -> GOAL/OBJ/SCP -> CAP/REQ/DES/NFR
-        -> ADR/control/RISK -> TASK/IMP -> TEST/EVID -> CLAIM
+SRC/ASM -> GOAL/OBJ/SCP/SCN -> CAP/REQ/DES/NFR
+        -> ADR/REAL/PROD/RISK -> IMP/FBB/CTX/HND
+        -> EFF/COST/operations -> TEST/EVID -> CLAIM/validated scenario
 ```
 
 Not every record needs every link. Every implementation-handoff item and presentation claim must trace backward to an approved need and forward to expected evidence, cited external evidence, or an explicit gap.
@@ -86,6 +87,7 @@ Not every record needs every link. Every implementation-handoff item and present
 | Source, assumption, goal | `00-framing/` artifact matching the record type |
 | Objective, scope, change, gate, risk | `01-preparation/` register matching the record type |
 | Capability | `03-architecture/31-enterprise-capabilities.md` |
+| Capability realization and required product | `03-architecture/37-capability-realization.md` |
 | Requirement, design invariant, NFR statement | `02-design/23-requirements-and-acceptance.md` |
 | NFR realization | `03-architecture/35-non-functional-architecture.md` |
 | Architecture decision | `03-architecture/decisions/` and its index |
@@ -97,9 +99,12 @@ Not every record needs every link. Every implementation-handoff item and present
 | Implementation handoff | `04-implementation/49-implementation-handoff.md` |
 | Implementation test (`TEST-IMP`) | `04-implementation/47-test-and-validation.md` |
 | Sizing test (`TEST-SIZE`) | `05-sizing/53-sizing-tests.md` |
+| Cloud/service cost | `05-sizing/54-sizing-and-cost-estimation.md` |
+| Delivery effort | `05-sizing/55-delivery-effort-estimate.md` |
 | Operational test or exercise (`TEST-OPS`) | `06-operations/65-service-management-and-continuity.md` |
 | External evidence | `01-preparation/19-external-evidence-register.md` |
 | Presentation claim | `07-presentation/75-claim-and-evidence-register.md` |
+| Architecture-validated scenario | `07-presentation/76-validated-scenario.md`, derived from linked canonical sources |
 
 Tests use phase namespaces: `TEST-IMP-NNN`, `TEST-SIZE-NNN`, and `TEST-OPS-NNN`. The phase register owns the test plan. The [external evidence register](19-external-evidence-register.md) references results produced outside the architecture harness.
 
@@ -112,6 +117,8 @@ The harness owns architecture definition and implementation context. It may spec
 - code-generation context and prohibited decisions;
 - sizing models and validation plans; and
 - operating models, procedures, rollout, recovery, and readiness plans.
+
+The default final delivery is `DEL-001`, the architecture-validated scenario and decision package. It must show how every in-scope scenario step maps to required behavior, capability realization, products or custom building blocks, delivery effort, cloud/service cost, operating ownership, and validation status.
 
 The downstream implementation workflow owns source code, infrastructure code, pipelines, deployments, test execution, generated artifacts, releases, and measured implementation or operating results. Link relevant results back as external evidence; do not copy delivery artifacts into this repository.
 

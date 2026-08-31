@@ -12,12 +12,12 @@ Turn the target architecture and implementation handoff into an owned operating 
 
 ## Canonical sources
 
-Read `06-operations/60-operations-plan.md`, all operations artifacts, target architecture, dependencies, NFRs, release automation requirements, implementation handoff, sizing model, available external evidence, and accepted risks.
+Read `03-architecture/37-capability-realization.md`, `06-operations/60-operations-plan.md`, all operations artifacts, target architecture, dependencies, NFRs, release automation requirements, implementation handoff, delivery-effort and sizing models, available external evidence, and accepted risks.
 
 ## Workflow
 
 1. Define service boundaries, users, critical journeys, hours, support tiers, SLOs, RTO/RPO, and dependencies.
-2. Assign accountable service, product, engineering, platform, data, security, support, vendor, and business roles.
+2. Assign accountable service, product, engineering, platform, data, security, support, vendor, and business roles for every realized capability, product, and functional building block.
 3. Define normal access, privileged access, automation identities, break glass, and segregation of duties.
 4. Specify how frequent or high-risk procedures should become versioned, idempotent, observable automation with safety checks and rollback.
 5. Define monitoring, alerting, security, vulnerability, patch, secret, key, certificate, data, backup, cost, and vendor processes.

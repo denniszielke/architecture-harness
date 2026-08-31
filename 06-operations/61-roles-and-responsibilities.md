@@ -10,9 +10,9 @@ This artifact operationalizes the responsibility model in [../02-design/domains/
 
 ## Service ownership
 
-| Service or capability | Accountable owner | Responsible team | Support tier | Security owner | Data owner | Vendor contact | Hours |
-|---|---|---|---|---|---|---|---|
-| [Service] | [Role] | [Team] | [Tier] | [Role] | [Role] | [Path] | [Hours] |
+| Realization/product/building block | Service or capability | Accountable owner | Responsible team | Support tier | Security owner | Data owner | Vendor contact | Hours |
+|---|---|---|---|---|---|---|---|---|
+| `REAL/PROD/FBB-NNN` | [Service] | [Role] | [Team] | [Tier] | [Role] | [Role] | [Path] | [Hours] |
 
 ## RACI
 

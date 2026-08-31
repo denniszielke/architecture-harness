@@ -49,14 +49,16 @@ Prefer the smallest task that reduces a blocking uncertainty or completes a trac
 
 - Framing or preparation baseline: `Preparation Foundation`
 - Product-independent behavior: `Solution Design Partner`
-- Product mapping, topology, dependencies, or NFR architecture: `Architecture Partner`
+- Capability realization, required products, topology, dependencies, or NFR architecture: `Architecture Partner`
 - Material decision: `ADR Proposal Partner`
 - Implementation plan, backlog, stories, building blocks, code-generation context, and test/release plans: `Engineering Manager`
-- Capacity, performance, telemetry, cost model, or sizing validation plan: `Sizing and FinOps Partner`
+- Delivery effort, capacity, performance, telemetry, cloud/service cost, or sizing validation plan: `Sizing and FinOps Partner`
 - Operating model, procedure specifications, rollout, security operations, or continuity plan: `Operations Readiness Partner`
 - Read-only security review: `Cloud Security Reviewer`
 
 Give the specialist the exact task ID, canonical inputs, affected records, expected output, exclusions, evidence need, and gate.
+
+For G7, assemble `07-presentation/76-validated-scenario.md` from the canonical phase artifacts. Do not mark it architecture-validated while an in-scope scenario step lacks a realization strategy, product or custom-build mapping, effort estimate, cloud/service cost, operating owner, or explicit blocker.
 
 ### 4. Maintain the plan
 

@@ -9,7 +9,7 @@
 ## NFR register
 
 | Requirement ID | Quality attribute | Accepted scenario and target | Architecture mechanism | Observability | Validation | Owner |
-|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | `NFR-NNN` | [Security/reliability/performance/scale/operability/cost/privacy/accessibility/portability] | [Link to design requirement] | [Mechanism] | [Signal] | `TEST-<phase>-NNN` | [Role] |
 
 The requirement and threshold are canonical in [../02-design/23-requirements-and-acceptance.md](../02-design/23-requirements-and-acceptance.md). This artifact owns architecture realization and trade-offs.

@@ -10,11 +10,13 @@
 
 [State target outcomes, architecture style, inherited constraints, and the boundary between enterprise platforms and project-owned components.]
 
-## Capability-to-product mapping
+## Capability-to-product deployment mapping
 
-| Capability or responsibility | Selected product or service | Deployment scope | Owner | Key configuration or tier | Constraint evidence | Governing ADR |
-|---|---|---|---|---|---|---|
-| `CAP-NNN` | [Selected only after decision] | [Tenant/account/subscription/region/environment] | [Role/team] | [Tier/pattern] | [Source/test] | `ADR-NNN` |
+| Capability or responsibility | Realization | Product/service or custom responsibility | Deployment scope | Owner | Key configuration or tier | Constraint evidence | Governing ADR |
+|---|---|---|---|---|---|---|---|
+| `CAP-NNN` | `REAL-NNN` | `PROD-NNN` or bounded `REAL-NNN` custom responsibility | [Tenant/account/subscription/region/environment] | [Role/team] | [Tier/pattern] | [Source/test] | `ADR-NNN` |
+
+The canonical realization strategy and required product inventory are maintained in [37-capability-realization.md](37-capability-realization.md). This artifact owns how those products and custom responsibilities are deployed and interact. Concrete `FBB-NNN` custom building blocks are added during the G4 implementation handoff.
 
 ## Candidate cloud families
 

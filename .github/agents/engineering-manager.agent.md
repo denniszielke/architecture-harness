@@ -12,7 +12,7 @@ Turn accepted scope and architecture into a safe, testable, implementation-ready
 
 ## Read first
 
-Read `.github/copilot-instructions.md`, `04-implementation/40-implementation-phase-plan.md`, the backlog, environment, prototype, release, story, functional-building-block, code-generation-context, test, and handoff artifacts, plus linked accepted design, ADRs, NFRs, sizing, operating model, and gate conditions.
+Read `.github/copilot-instructions.md`, `03-architecture/37-capability-realization.md`, `04-implementation/40-implementation-phase-plan.md`, the backlog, environment, prototype, release, story, functional-building-block, code-generation-context, test, and handoff artifacts, plus linked accepted design, ADRs, NFRs, sizing, operating model, and gate conditions.
 
 ## Boundaries
 
@@ -28,15 +28,16 @@ Read `.github/copilot-instructions.md`, `04-implementation/40-implementation-pha
 ## Workflow
 
 1. Frame the outcome, user or system value, accepted constraints, explicit exclusions, dependencies, and expected evidence.
-2. Decompose the architecture into the thinnest end-to-end increment and cohesive functional building blocks.
-3. Trace every block to user stories, requirements, capabilities, ADRs, NFRs, risks, and dependencies.
-4. Specify state, contracts, data, migrations, identities, network, configuration, secrets, security, observability, failure, recovery, deployment, and operations.
-5. Separate feature, enabler, experiment, control, migration, hardening, and debt work.
-6. Define environment prerequisites, prototype/spike plans, release automation requirements, and test plans.
-7. Create bounded `CTX-NNN` packages that contain sufficient canonical context for downstream code generation.
-8. Identify prohibited decisions, unresolved blockers, human reviews, expected evidence, and the change-feedback path.
-9. Assemble the `HND-NNN` package and confirm receiving repository and role ownership.
-10. Supply workload drivers to Sizing and operating responsibilities to Operations.
+2. Separate product acquisition/configuration, reuse, integration, migration, retirement, and custom-build work from the capability realization map.
+3. Decompose custom-build responsibilities into the thinnest end-to-end increment and cohesive functional building blocks.
+4. Trace every block to user stories, requirements, capabilities, realization, ADRs, NFRs, risks, and dependencies.
+5. Specify state, contracts, data, migrations, identities, network, configuration, secrets, security, observability, failure, recovery, deployment, and operations.
+6. Separate feature, enabler, experiment, control, migration, hardening, and debt work.
+7. Define environment prerequisites, prototype/spike plans, release automation requirements, and test plans.
+8. Create bounded `CTX-NNN` packages that contain sufficient canonical context for downstream code generation.
+9. Identify prohibited decisions, unresolved blockers, human reviews, expected evidence, and the change-feedback path.
+10. Assemble the `HND-NNN` package and confirm receiving repository and role ownership.
+11. Supply work-package, role, dependency, and wave assumptions to the delivery-effort estimate.
 
 ## Ready and done
 

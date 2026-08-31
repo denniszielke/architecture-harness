@@ -26,6 +26,7 @@ The repository is a starter, not a completed reference architecture. A new proje
 - Change-impact and task-level replay.
 - An ADR process and reusable ADR template.
 - Registers for assumptions, requirements, risks, gates, external evidence, sizing, planned tests, and claims.
+- A final architecture-validated scenario linking business outcomes to realization, products, effort, cloud cost, operations, and evidence.
 - GitHub Copilot custom agents, portable agent skills, and VS Code prompt files.
 - A manifest-driven validator and GitHub Actions workflow.
 
@@ -106,11 +107,11 @@ The phases are progressive but not strictly sequential.
 | [00-framing](00-framing/) | Source-grounded vision, assumptions, scenario, and goals | Project input | Framing criteria | G0 |
 | [01-preparation](01-preparation/) | Objectives, scope, deliverables, governance, and execution baseline | G0 | G0 | G1 |
 | [02-design](02-design/) | Product-independent logical design and measurable requirements | G1 | G1 | G2 |
-| [03-architecture](03-architecture/) | Capabilities, products, topology, dependencies, NFR realization, and decisions | G2 | G2 | G3 |
+| [03-architecture](03-architecture/) | Capabilities, buy/build realization, required products, topology, dependencies, NFRs, and decisions | G2 | G2 | G3 |
 | [04-implementation](04-implementation/) | Implementation plan, stories, building blocks, code-generation context, and engineering handoff | G3 | G3 | G4 |
-| [05-sizing](05-sizing/) | Workload and cost model, observability requirements, and sizing validation plan | G2 | G3 and G4 | G5 |
+| [05-sizing](05-sizing/) | Delivery effort, workload and cloud-cost model, observability requirements, and sizing validation plan | G2 | G3 and G4 | G5 |
 | [06-operations](06-operations/) | Operating model, procedure requirements, rollout, support, security operations, and continuity plans | G1 | G3, G4, and G5 | G6 |
-| [07-presentation](07-presentation/) | Traceable business, architecture, evidence, and decision story | G0 | G1-G6 | G7 |
+| [07-presentation](07-presentation/) | Architecture-validated scenario, traceable evidence, and decision story | G0 | G1-G6 | G7 |
 
 The distinction is important:
 
@@ -144,6 +145,24 @@ It does not create:
 - implementation-complete, production-ready, or operating-effectiveness claims.
 
 The downstream implementation workflow owns execution. It returns material architecture conflicts, failed assumptions, new decisions, and relevant evidence through [04-implementation/49-implementation-handoff.md](04-implementation/49-implementation-handoff.md), [01-preparation/16-change-impact-register.md](01-preparation/16-change-impact-register.md), and [01-preparation/19-external-evidence-register.md](01-preparation/19-external-evidence-register.md).
+
+## Ultimate delivery
+
+The default final delivery is [07-presentation/76-validated-scenario.md](07-presentation/76-validated-scenario.md).
+
+For every in-scope business scenario step, it answers:
+
+- what business goal and objective are served;
+- what behavior and capabilities are required;
+- whether the capability is bought, configured, built, reused, integrated, or retired;
+- which products, services, tiers, licenses, or custom functional building blocks are required;
+- which ADR governs each material choice;
+- the low, base, and high delivery effort by role and wave;
+- the low, base, and high cloud/service cost with commercial assumptions;
+- who owns, secures, supports, and operates the realized capability; and
+- whether the result is architecture-validated, conditional, blocked, or supported by cited external evidence.
+
+`Architecture-validated` means complete and decision-ready at architecture level. It does not mean that code exists, products are procured, environments are deployed, or business outcomes and production readiness have been demonstrated.
 
 ## Phase-by-phase usage
 
@@ -212,6 +231,8 @@ Raise a decision question when the design reaches a material trust, data, platfo
 5. Record functional and delivery dependencies.
 6. Map NFRs to architecture mechanisms, telemetry, and validation.
 7. Resolve implementation-blocking choices through ADRs.
+8. Map every capability to buy, configure, build, reuse, integrate, or retire in [03-architecture/37-capability-realization.md](03-architecture/37-capability-realization.md).
+9. Identify every required product, service, tier, license, custom building block, owner, cost driver, and exit consideration.
 
 Recommended agents:
 
@@ -241,19 +262,20 @@ The Engineering Manager edits plans and context only. It must not generate code,
 
 ### 05 - Sizing
 
-**Goal:** replace unbounded architectural guesses with traceable ranges, confidence, observability requirements, and a downstream validation plan.
+**Goal:** replace unbounded delivery and architecture guesses with traceable effort, capacity, cloud/service cost ranges, confidence, observability requirements, and downstream validation plans.
 
 Sizing has two passes:
 
 1. **Architecture model:** build workload assumptions and compare candidate capacity and cost ranges.
-2. **Validation plan:** define the downstream tests and evidence needed to calibrate the model.
-3. **External calibration:** update assumptions and confidence when cited implementation or performance evidence becomes available.
+2. **Delivery effort:** estimate low/base/high person-days, role demand, delivery waves, elapsed-time drivers, contingency, and optional labor cost.
+3. **Validation plan:** define the downstream tests and evidence needed to calibrate the model.
+4. **External calibration:** update assumptions and confidence when cited implementation or performance evidence becomes available.
 
 Include steady, peak, burst, seasonal, growth, retention, retry, replay, failure, recovery, redundancy, non-production, observability, security, licensing, support, and network effects where relevant.
 
 Recommended agent: **Sizing and FinOps Partner**.
 
-Never hide list-price assumptions, negotiated discounts, commitment models, currency, region, retrieval date, uncertainty, exclusions, or the absence of measured evidence. G5 approves the sizing model and validation plan, not demonstrated scale or cost.
+Never hide delivery-capacity assumptions, list prices, negotiated discounts, commitment models, labor-rate treatment, currency, region, retrieval date, uncertainty, exclusions, or the absence of measured evidence. G5 approves effort, sizing, cost, and validation models, not a delivery or spend commitment.
 
 ### 06 - Operations
 
@@ -282,7 +304,8 @@ A written runbook or exercise plan is designed content. G6 confirms that the ope
 3. Build the business-value story.
 4. Simplify the accepted architecture and functional views without changing their meaning.
 5. Explain ownership, rollout, support, security, cost, resilience, and remaining gaps.
-6. Review claims, timing, accessibility, objections, and distribution constraints.
+6. Assemble the architecture-validated scenario across G1-G6.
+7. Review claims, timing, accessibility, objections, and distribution constraints.
 
 Recommended agent: **Program Orchestrator**, with the phase owners reviewing claims sourced from their artifacts.
 
@@ -297,10 +320,10 @@ The detailed roster and collaboration rules are in [AGENTS.md](AGENTS.md).
 | Program Orchestrator | Current-state assessment, task selection, dependency management, replay, and gate preparation |
 | Preparation Foundation | Framing and preparation artifacts |
 | Solution Design Partner | Product-independent design and requirements |
-| Architecture Partner | Capabilities, product mapping, topology, dependencies, and NFR realization |
+| Architecture Partner | Capabilities, buy/configure/build/reuse/integrate/retire realization, required products, topology, dependencies, and NFR realization |
 | ADR Proposal Partner | Decision framing, research, alternatives, consequences, and proposed ADRs |
 | Engineering Manager | Implementation plan, backlog, stories, functional building blocks, environment/release/test plans, code-generation context, and handoff |
-| Sizing and FinOps Partner | Workload and cost model, telemetry requirements, sensitivity, scaling triggers, and validation plan |
+| Sizing and FinOps Partner | Delivery effort, role demand, workload and cloud-cost model, telemetry requirements, sensitivity, scaling triggers, and validation plan |
 | Operations Readiness Partner | Operating model, service ownership, procedure specifications, rollout, support, security operations, and continuity plans |
 | Cloud Security Reviewer | Read-only security and threat review |
 
@@ -330,6 +353,15 @@ delivery, replay, throughput, identity, network, operations, cost, and exit need
 Do not accept the decision.
 ```
 
+Define capability realization:
+
+```text
+For every in-scope capability, define whether it is bought, configured, built,
+reused, integrated, or retired. Identify required products, tiers, licenses,
+custom functional building blocks, ADRs, dependencies, operating owners,
+effort inputs, cloud-cost drivers, and unresolved gaps.
+```
+
 Plan implementation:
 
 ```text
@@ -346,6 +378,16 @@ Prepare a gate:
 Prepare the G3 readiness recommendation. Assess every criterion against current
 evidence, distinguish designed from demonstrated behavior, and leave the actual
 gate decision to the named authority.
+```
+
+Assemble the final delivery:
+
+```text
+Build the architecture-validated scenario. Trace every in-scope scenario step
+to objectives, behavior, capabilities, realization strategy, required products
+or custom building blocks, delivery effort, cloud/service cost, operating
+ownership, external evidence, and explicit conditions. Do not claim that the
+scenario has been implemented.
 ```
 
 ## Day-to-day task workflow
@@ -464,8 +506,9 @@ Use stable identifiers to connect artifacts. Common examples are:
 
 - `SRC-001`, `ASM-001`, `GOAL-001`, `OBJ-001`, and `SCP-001`
 - `REQ-001`, `DES-001`, `NFR-001`, and `CAP-001`
-- `ADR-001`, `RISK-001`, `DEP-001`, and `CHG-001`
-- `IMP-001`, `US-001`, `EVID-001`, and `CLAIM-001`
+- `REAL-001`, `PROD-001`, `ADR-001`, `RISK-001`, and `DEP-001`
+- `IMP-001`, `FBB-001`, `CTX-001`, and `HND-001`
+- `EFF-001`, `COST-001`, `EVID-001`, and `CLAIM-001`
 - `TASK-DES-01`, `TASK-ARC-01`, and other phase task IDs
 - `TEST-IMP-001`, `TEST-SIZE-001`, and `TEST-OPS-001`
 
@@ -518,11 +561,11 @@ Agents accelerate discovery, consistency checking, and drafting. Human owners re
 00-framing/     Vision, assumptions, scenario, and goals
 01-preparation/ Objectives, scope, governance, changes, gates, and risks
 02-design/      Product-independent design and requirements
-03-architecture/Capabilities, cloud mapping, topology, NFRs, and ADRs
+03-architecture/Capabilities, realization, products, topology, NFRs, and ADRs
 04-implementation/Planning, stories, building blocks, contexts, and handoff
-05-sizing/      Workload/cost model, observability, and validation plan
+05-sizing/      Delivery effort, workload/cloud cost, and validation plan
 06-operations/  Operating model, procedure specifications, rollout, continuity
-07-presentation/Business value, architecture views, operating model, and claims
+07-presentation/Validated scenario, value, architecture, operations, and claims
 scripts/        Repository validation
 ```
 

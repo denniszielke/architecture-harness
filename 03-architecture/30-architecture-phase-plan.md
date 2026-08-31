@@ -25,7 +25,8 @@ Review the architecture across security, reliability, operational excellence, pe
 | `TASK-ARC-04` | Analyze dependencies | `TASK-ARC-02`, `TASK-ARC-03` | [34-functional-dependencies.md](34-functional-dependencies.md) | Critical, optional, organizational, and external dependencies are visible | Not started | Not available |
 | `TASK-ARC-05` | Realize NFRs | `TASK-ARC-03`, `TASK-ARC-04` | [35-non-functional-architecture.md](35-non-functional-architecture.md) | Quality attributes map to mechanisms and tests | Not started | Not available |
 | `TASK-ARC-06` | Resolve blocking decisions | `TASK-ARC-03`-`TASK-ARC-05` | ADR proposals and decisions | Blocking choices have actual authority outcomes or explicit gate conditions | Not started | Not available |
-| `TASK-ARC-07` | Prepare G3 review | `TASK-ARC-01`-`TASK-ARC-06` | Gate recommendation | Implementation-planning boundaries, risks, validation obligations, and unresolved items are clear | Not started | Not available |
+| `TASK-ARC-07` | Define capability realization and required products | `TASK-ARC-01`-`TASK-ARC-06`, `TASK-SIZE-03` | [37-capability-realization.md](37-capability-realization.md) | Every in-scope capability is bounded as buy, configure, build, reuse, integrate, or retire with required products or custom-build responsibilities identified | Not started | Not available |
+| `TASK-ARC-08` | Prepare G3 review | `TASK-ARC-01`-`TASK-ARC-07` | Gate recommendation | Implementation-planning boundaries, products, realization strategies, risks, validation obligations, and unresolved items are clear | Not started | Not available |
 
 ## G3 criteria
 
@@ -36,6 +37,8 @@ Review the architecture across security, reliability, operational excellence, pe
 - Deployment, configuration, promotion, rollback, backup, recovery, and decommissioning are defined.
 - Indicative capacity, cost range, sensitivity, and major cost drivers inform product and topology decisions.
 - Blocking ADRs have valid decisions or explicit gate conditions.
+- Every in-scope capability has one bounded realization strategy, required product or custom-build responsibility, delivery and operating owner, and linked decision.
+- Required products identify the tier, deployment scope, license or consumption model, cost driver, support lifecycle, and exit consideration.
 - Implementation-handoff, sizing, security, and operations validation obligations are linked.
 - Prototype architecture and target production architecture are visibly different where needed.
 
@@ -49,5 +52,6 @@ Review the architecture across security, reliability, operational excellence, pe
 | Trust, data, tenant, or region boundary | `TASK-ARC-03` and security review | ADRs, data, integration, operations |
 | Accepted or superseded ADR | Affected `TASK-ARC` tasks | Design summaries, backlog, tests, costs, claims |
 | External platform or organizational dependency | `TASK-ARC-04` | Risk, sequencing, fallback, gate readiness |
+| Realization strategy, required product, or custom-build boundary | `TASK-ARC-07` | ADRs, functional building blocks, effort, cloud cost, operating ownership, validated scenario |
 
 Use the [change impact register](../01-preparation/16-change-impact-register.md) and preserve historical ADR rationale. Recheck G3 when a blocking decision, topology, material dependency, or NFR realization changes.

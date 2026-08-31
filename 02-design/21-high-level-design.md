@@ -32,6 +32,12 @@
 
 Describe normal, duplicate, delayed, invalid, unauthorized, unavailable-dependency, recovery, and replay paths.
 
+## Scenario-to-design realization
+
+| Scenario step | Objective | Required behavior | Logical components | Decision or handoff | Failure or exception | Acceptance |
+|---|---|---|---|---|---|---|
+| `SCN-NNN` | `OBJ-NNN` | `REQ/DES-NNN` | [Components] | [Authority/handoff] | [Behavior] | [Method] |
+
 ## Decision and authority model
 
 | Decision or action | Recommends | Executes | Approves | Evidence retained |

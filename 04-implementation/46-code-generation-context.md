@@ -14,7 +14,7 @@ Define the context that a downstream human or coding agent must receive before g
 
 | Context ID | Functional building block | Source specifications | Intended downstream target | Required review | Planned tests | Refresh trigger |
 |---|---|---|---|---|---|---|
-| `CTX-001` | `FBB-NNN` | [Requirements, ADRs, contracts, NFRs, stories, operating model] | [Implementation repository/component] | [Owner roles] | `TEST-IMP-NNN` | [Changed canonical input] |
+| `CTX-001` | `FBB-NNN` | [Realization, requirements, ADRs, contracts, NFRs, stories, operating model] | [Implementation repository/component] | [Owner roles] | `TEST-IMP-NNN` | [Changed canonical input] |
 
 ## Guardrails
 
@@ -29,7 +29,7 @@ Define the context that a downstream human or coding agent must receive before g
 ## Required context sections
 
 1. Outcome, scope, exclusions, and linked user stories.
-2. Functional building block responsibility and authoritative state.
+2. Capability realization, functional building block responsibility, and authoritative state.
 3. Requirements, ADRs, NFRs, risks, and inherited constraints.
 4. API, event, message, data, schema, and migration contracts.
 5. Human, workload, pipeline, agent, privileged, and emergency identities.

@@ -6,9 +6,9 @@
 > Gate: G4
 > Last reviewed: Not reviewed
 
-| ID | Outcome or work item | Type | Priority | Dependencies | Design/ADR links | Building blocks | Acceptance and planned tests | Owner | Status |
-|---|---|---|---|---|---|---|---|---|---|
-| `IMP-001` | [Thin-slice outcome] | Feature | [Priority] | [IDs] | [Links] | `FBB-NNN` | `TEST-IMP-NNN` | [Role] | Proposed/Ready/Blocked |
+| ID | Outcome or work item | Type | Realization | Priority | Dependencies | Design/ADR links | Product or building blocks | Acceptance and planned tests | Owner | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `IMP-001` | [Thin-slice outcome] | Feature | `REAL-NNN` | [Priority] | [IDs] | [Links] | `PROD/FBB-NNN` | `TEST-IMP-NNN` | [Role] | Proposed/Ready/Blocked |
 
 ## Backlog types
 

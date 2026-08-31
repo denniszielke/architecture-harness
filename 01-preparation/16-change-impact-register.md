@@ -28,5 +28,7 @@ Use one row per material input change. Minor editorial changes that do not alter
 - Capability mapping, topology, NFRs, ADRs, dependencies, or service constraints.
 - Backlog, environments, automation, code, tests, or evidence.
 - Workload model, telemetry, performance, capacity, cost, or sensitivity.
+- Capability realization, required products, delivery effort, labor cost, or implementation waves.
 - Roles, procedures, security operations, recovery, rollout, or support.
 - Presentation claims, diagrams, value story, caveats, or requested decision.
+- Architecture-validated scenario coverage or overall assessment.

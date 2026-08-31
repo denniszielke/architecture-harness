@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.2",
+  "schemaVersion": "1.3",
   "artifactStates": [
     "Draft",
     "In review",
@@ -18,9 +18,23 @@
     "Operational evidence",
     "Future commitment"
   ],
+  "realizationStrategies": [
+    "Buy",
+    "Configure",
+    "Build",
+    "Reuse",
+    "Integrate",
+    "Retire"
+  ],
+  "ultimateDelivery": {
+    "deliverableId": "DEL-001",
+    "artifact": "07-presentation/76-validated-scenario.md",
+    "gate": "G7"
+  },
   "identifierPrefixes": {
     "SRC": "Source fact",
     "ASM": "Assumption",
+    "SCN": "Scenario step",
     "VIS": "Vision principle or guardrail",
     "GOAL": "Business goal",
     "OBJ": "Measurable objective",
@@ -28,6 +42,8 @@
     "DEL": "Deliverable",
     "TASK": "Phase task",
     "CAP": "Capability",
+    "REAL": "Capability realization",
+    "PROD": "Required product or service",
     "REQ": "Requirement",
     "DES": "Design item",
     "DPR": "Design principle",
@@ -43,6 +59,9 @@
     "FBB": "Functional building block",
     "CTX": "Code-generation context package",
     "HND": "Implementation handoff",
+    "EFF": "Delivery effort estimate",
+    "CAPEST": "Capacity estimate",
+    "COST": "Cloud or service cost estimate",
     "TEST": "Phase test (TEST-<phase>-NNN)",
     "EVID": "Evidence",
     "SIZE-A": "Sizing assumption",
@@ -167,9 +186,9 @@
     "G2": "Logical design ready for architecture",
     "G3": "Architecture ready for implementation planning",
     "G4": "Implementation handoff ready",
-    "G5": "Sizing model and validation plan ready",
+    "G5": "Delivery effort, sizing model, and validation plan ready",
     "G6": "Operating model and operational-readiness plan ready",
-    "G7": "Decision package ready"
+    "G7": "Architecture-validated scenario and decision package ready"
   },
   "requiredArtifacts": [
     "README.md",
@@ -208,6 +227,7 @@
     "03-architecture/34-functional-dependencies.md",
     "03-architecture/35-non-functional-architecture.md",
     "03-architecture/36-architecture-decision-process.md",
+    "03-architecture/37-capability-realization.md",
     "03-architecture/decisions/README.md",
     "03-architecture/decisions/adr-template.md",
     "04-implementation/40-implementation-phase-plan.md",
@@ -225,6 +245,7 @@
     "05-sizing/52-observability-and-key-metrics.md",
     "05-sizing/53-sizing-tests.md",
     "05-sizing/54-sizing-and-cost-estimation.md",
+    "05-sizing/55-delivery-effort-estimate.md",
     "06-operations/60-operations-plan.md",
     "06-operations/61-roles-and-responsibilities.md",
     "06-operations/62-standard-operating-procedure-automation.md",
@@ -236,6 +257,7 @@
     "07-presentation/72-architecture-patterns.md",
     "07-presentation/73-functional-architecture.md",
     "07-presentation/74-operating-model.md",
-    "07-presentation/75-claim-and-evidence-register.md"
+    "07-presentation/75-claim-and-evidence-register.md",
+    "07-presentation/76-validated-scenario.md"
   ]
 }

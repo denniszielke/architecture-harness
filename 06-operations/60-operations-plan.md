@@ -25,6 +25,7 @@ Define how the solution should be owned, observed, secured, changed, supported, 
 ## G6 criteria
 
 - Service, platform, data, security, vendor, support, and business accountabilities are defined, with assignment gaps visible.
+- Every realized capability, required product, and custom functional building block maps to accountable build, product, service, security, data, and support roles.
 - Monitoring, alerting, on-call, escalation, communication, incident, and problem processes are specified.
 - Access, secrets, keys, certificates, vulnerabilities, patches, policy, and evidence procedures have owners, controls, metrics, and validation plans.
 - Deployment, rollback, migration, onboarding, offboarding, capacity, budget, backup, restore, failover, and continuity plans are implementation-ready.

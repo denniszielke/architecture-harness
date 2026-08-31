@@ -8,9 +8,9 @@
 
 ## Capability map
 
-| ID | Capability | Business outcome | Owning domain | Maturity now | Target maturity | Build, buy, reuse, or retire | Linked objectives and requirements |
+| ID | Capability | Business outcome | Scenario, objectives, and requirements | Owning domain | Maturity now | Target maturity | Realization link |
 |---|---|---|---|---|---|---|---|
-| `CAP-001` | [Verb-noun capability] | [Outcome] | [Domain] | [Level] | [Level] | [Strategy] | `OBJ/REQ-NNN` |
+| `CAP-001` | [Verb-noun capability] | [Outcome] | `SCN/OBJ/REQ-NNN` | [Domain] | [Level] | [Level] | `REAL-NNN` |
 
 ## Capability principles
 
@@ -18,6 +18,7 @@
 - Decompose until responsibilities, ownership, inputs, outputs, measures, and dependencies are reviewable.
 - Reuse an enterprise capability only when its service level, boundary, control, and ownership fit the project.
 - Identify duplicate capability ownership and deliberate transitional overlap.
+- Maintain buy, configure, build, reuse, integrate, or retire decisions in [37-capability-realization.md](37-capability-realization.md), not in this capability definition.
 
 ## Heat map
 

@@ -6,9 +6,9 @@
 > Gate: G1
 > Last reviewed: Not reviewed
 
-| ID | Objective | Linked goal | Baseline | Target or threshold | Measurement method | Evidence class | Owner role | Due gate |
+| ID | Objective | Linked goal and scenario | Baseline | Target or threshold | Measurement method | Evidence class | Owner role | Due gate |
 |---|---|---|---|---|---|---|---|---|
-| `OBJ-001` | [Measurable change] | `GOAL-NNN` | [Value/unknown] | [Target/threshold] | [Method, population, window] | [Target, prototype, or operational] | [Role] | [Gate] |
+| `OBJ-001` | [Measurable change] | `GOAL/SCN-NNN` | [Value/unknown] | [Target/threshold] | [Method, population, window] | [Target, designed, demonstrated, or operational] | [Role] | [Gate] |
 
 ## Measurement rules
 

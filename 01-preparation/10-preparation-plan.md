@@ -18,7 +18,7 @@ Convert the framing package into an executable, governed program baseline: narra
 | `TASK-PREP-01` | Reconcile framing | G0 recommendation | Framing consistency findings | Conflicts and missing evidence are recorded | Not started | Not available |
 | `TASK-PREP-02` | Build stakeholder narrative | `TASK-PREP-01` | [11-narrative.md](11-narrative.md) | Current and future experience has a bounded story | Not started | Not available |
 | `TASK-PREP-03` | Define measurable objectives | `TASK-PREP-01` | [12-objectives.md](12-objectives.md) | Objectives have measures and evidence plans | Not started | Not available |
-| `TASK-PREP-04` | Set scope and exclusions | `TASK-PREP-02`, `TASK-PREP-03` | [13-scope.md](13-scope.md) | In, out, deferred, and experimental work is explicit | Not started | Not available |
+| `TASK-PREP-04` | Set scope and exclusions | `TASK-PREP-02`, `TASK-PREP-03` | [13-scope.md](13-scope.md) | Every scenario step is linked to an in-scope, out-of-scope, deferred, or experimental scope item | Not started | Not available |
 | `TASK-PREP-05` | Define deliverables and acceptance | `TASK-PREP-04` | [14-deliverables.md](14-deliverables.md) | Each deliverable has an owner, inputs, acceptance, and evidence | Not started | Not available |
 | `TASK-PREP-06` | Establish governance and traceability | `TASK-PREP-01` | [15-governance.md](15-governance.md), registers | Roles, lifecycle, identifiers, change control, and gates are usable | Not started | Not available |
 | `TASK-PREP-07` | Prepare G1 review | `TASK-PREP-02`-`TASK-PREP-06` | Gate recommendation | Conditions and unresolved dependencies are visible | Not started | Not available |
@@ -26,10 +26,12 @@ Convert the framing package into an executable, governed program baseline: narra
 ## G1 criteria
 
 - Objectives trace to source facts, assumptions, and goals.
+- Objectives and deliverables identify the scenario steps whose outcomes they cover.
 - Scope is sufficient to define a thin, testable end-to-end slice.
 - Deliverables have acceptance criteria and evidence expectations.
 - Accountable roles and decision authorities are named or explicitly unassigned.
 - Change, risk, ADR, and gate processes are usable.
+- The default final delivery is the architecture-validated scenario and decision package.
 - Downstream phases can identify their inputs without copying the baseline.
 
 ## Input change and replay

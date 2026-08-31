@@ -14,7 +14,7 @@
 **I need** [capability]
 **So that** [measurable outcome]
 
-**Traceability:** `OBJ-NNN`, `SCP-NNN`, `CAP-NNN`, `DES/NFR-NNN`, `ADR-NNN`
+**Traceability:** `OBJ-NNN`, `SCP-NNN`, `CAP-NNN`, `REAL-NNN`, `DES/NFR-NNN`, `ADR-NNN`
 
 **Acceptance scenarios**
 

@@ -30,6 +30,7 @@ Turn supplied source material into a bounded vision, explicit assumptions, a neu
 ## G0 criteria
 
 - The problem, affected stakeholders, desired change, constraints, and non-goals are explicit.
+- The in-scope business scenario is decomposed into stable end-to-end steps and exception paths.
 - Source facts and assumptions are visibly different.
 - Goals are outcome-oriented rather than a product list.
 - No unrecorded decision is presented as approved.

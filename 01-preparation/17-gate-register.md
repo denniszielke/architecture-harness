@@ -15,9 +15,9 @@ Agents and phase owners may write readiness recommendations. Only an actual gate
 | G2 | Design | Not assessed | [Links] | Not decided | [Role/name] | - | [Open actions] |
 | G3 | Architecture | Not assessed | [Links] | Not decided | [Role/name] | - | [Open actions] |
 | G4 | Implementation handoff | Not assessed | [Links] | Not decided | [Role/name] | - | [Open actions] |
-| G5 | Sizing model and validation plan | Not assessed | [Links] | Not decided | [Role/name] | - | [Open actions] |
+| G5 | Delivery effort, sizing model, and validation plan | Not assessed | [Links] | Not decided | [Role/name] | - | [Open actions] |
 | G6 | Operating model and readiness plan | Not assessed | [Links] | Not decided | [Role/name] | - | [Open actions] |
-| G7 | Presentation | Not assessed | [Links] | Not decided | [Role/name] | - | [Open actions] |
+| G7 | Architecture-validated scenario and decision package | Not assessed | [Links] | Not decided | [Role/name] | - | [Open actions] |
 
 ## Decision values
 

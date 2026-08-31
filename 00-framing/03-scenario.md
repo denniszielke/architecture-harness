@@ -39,6 +39,14 @@
 
 - [Capability need, not a product.]
 
+## Scenario steps
+
+Use scenario-step identifiers to preserve the end-to-end business flow through design, realization, effort, cost, operations, and the final validated view.
+
+| ID | Framing scope and later scope item | Actor or system | Trigger and input | Required outcome | Decision or handoff | Exception or failure | Linked goal |
+|---|---|---|---|---|---|---|---|
+| `SCN-001` | [Candidate in/out/unknown; `SCP-NNN` assigned at G1] | [Actor/system] | [Trigger/input] | [Observable business outcome] | [Authority/handoff] | [Failure or alternate path] | `GOAL-NNN` |
+
 ## Open questions
 
 - [Question, owner role, evidence, and due gate.]

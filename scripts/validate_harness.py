@@ -269,6 +269,51 @@ def validate_manifest(manifest: dict[str, object], errors: list[str]) -> None:
     if len(exit_gates) != len(set(exit_gates)):
         errors.append("Each phase must have a unique exit gate")
 
+    realization_strategies = manifest.get("realizationStrategies")
+    expected_strategies = {
+        "Buy",
+        "Configure",
+        "Build",
+        "Reuse",
+        "Integrate",
+        "Retire",
+    }
+    if not isinstance(realization_strategies, list) or set(realization_strategies) != expected_strategies:
+        errors.append(
+            "Manifest realizationStrategies must define Buy, Configure, Build, "
+            "Reuse, Integrate, and Retire"
+        )
+
+    ultimate_delivery = manifest.get("ultimateDelivery")
+    if not isinstance(ultimate_delivery, dict):
+        errors.append("Manifest must define the ultimateDelivery object")
+    else:
+        artifact_value = ultimate_delivery.get("artifact")
+        artifact = (
+            repository_path(artifact_value)
+            if isinstance(artifact_value, str)
+            else None
+        )
+        if ultimate_delivery.get("deliverableId") != "DEL-001":
+            errors.append("Manifest ultimateDelivery must use DEL-001")
+        if ultimate_delivery.get("gate") != "G7":
+            errors.append("Manifest ultimateDelivery must use G7")
+        if artifact is None or not artifact.is_file():
+            errors.append(
+                f"Manifest ultimate delivery artifact does not exist: {artifact_value}"
+            )
+        elif not has_exact_case(artifact):
+            errors.append(
+                f"Manifest ultimate delivery artifact has incorrect casing: "
+                f"{artifact_value}"
+            )
+        required_artifacts = manifest.get("requiredArtifacts", [])
+        if artifact_value not in required_artifacts:
+            errors.append(
+                "Manifest ultimate delivery artifact must be listed in "
+                "requiredArtifacts"
+            )
+
 
 def validate_frontmatter(errors: list[str]) -> None:
     names: set[str] = set()
@@ -492,6 +537,25 @@ def validate_links(errors: list[str]) -> None:
                 )
 
 
+def validate_markdown_tables(errors: list[str]) -> None:
+    for path in ROOT.rglob("*.md"):
+        expected_cells: int | None = None
+        for line_number, line in enumerate(
+            path.read_text(encoding="utf-8").splitlines(), 1
+        ):
+            if not line.startswith("|"):
+                expected_cells = None
+                continue
+            cells = len(re.split(r"(?<!\\)\|", line.strip().strip("|")))
+            if expected_cells is None:
+                expected_cells = cells
+            elif cells != expected_cells:
+                errors.append(
+                    f"Markdown table column mismatch: {path.relative_to(ROOT)}:"
+                    f"{line_number} expected {expected_cells}, found {cells}"
+                )
+
+
 def validate_identifier_prefixes(
     manifest: dict[str, object], errors: list[str]
 ) -> None:
@@ -534,6 +598,7 @@ def main() -> int:
     validate_frontmatter(errors)
     validate_controlled_artifacts(manifest, errors)
     validate_links(errors)
+    validate_markdown_tables(errors)
     if manifest:
         validate_identifier_prefixes(manifest, errors)
 

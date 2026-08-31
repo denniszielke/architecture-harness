@@ -15,11 +15,12 @@
 1. **Problem:** [Source-backed current situation and consequence.]
 2. **People and process:** [Who is affected and where friction or risk occurs.]
 3. **Strategic change:** [Future capability and operating shift.]
-4. **Architecture thesis:** [Why the chosen modular pattern fits the outcomes and constraints.]
-5. **Evidence:** [What design, prototype, sizing, and operational work actually shows.]
-6. **Value and cost:** [Target benefits, estimate range, assumptions, and confidence.]
-7. **Risk and readiness:** [Residual risk, unresolved decisions, production delta, and gate status.]
-8. **Ask:** [Decision, funding, ownership, or next increment.]
+4. **Architecture thesis:** [Why the chosen modular pattern and capability realization fit the outcomes and constraints.]
+5. **Realization:** [Which capabilities are bought, configured, built, reused, integrated, or retired and which products are required.]
+6. **Evidence:** [What accepted design and decisions show, plus any cited external evidence.]
+7. **Value and cost:** [Target benefits, delivery effort, cloud/service cost ranges, assumptions, and confidence.]
+8. **Risk and readiness:** [Residual risk, unresolved decisions, production delta, and gate status.]
+9. **Ask:** [Decision, funding, ownership, or next increment.]
 
 ## Value map
 

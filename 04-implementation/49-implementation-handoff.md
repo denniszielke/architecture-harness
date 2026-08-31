@@ -15,6 +15,7 @@
 ## Package checklist
 
 - [ ] Accepted objectives, scope, architecture, and ADRs are linked.
+- [ ] Capability realization and required product inventory are complete.
 - [ ] Backlog items and user stories are sequenced and owned.
 - [ ] Functional building blocks have complete responsibility and contract specifications.
 - [ ] Environment prerequisites and security guardrails are defined.
@@ -23,6 +24,7 @@
 - [ ] Code-generation context packages are complete and versioned.
 - [ ] Test plans and expected evidence are linked.
 - [ ] Sizing assumptions and operating-model inputs are included.
+- [ ] Delivery-effort inputs distinguish product acquisition/configuration, integration, custom build, migration, validation, and transition work.
 - [ ] Unresolved decisions, assumptions, risks, and exclusions are explicit.
 - [ ] The receiving team accepts the context and feedback path.
 

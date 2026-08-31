@@ -19,6 +19,7 @@
 - Designed controls remain labeled designed unless cited downstream implementation evidence exists.
 - Demonstrated results state the external source, data, environment, method, result, and limitation.
 - Operational claims require cited external evidence from the intended operating context.
-- Cost claims include currency, region, pricing date, assumptions, range, and exclusions.
+- Delivery-effort claims include role, person-day range, elapsed-time assumptions, confidence, contingency, and exclusions.
+- Cloud/service cost claims include product or service, currency, region, pricing date, commercial assumptions, range, period, and exclusions.
 - Future commitments identify owner, funding or approval state, and dependencies.
 - Remove unsupported claims rather than converting uncertainty into confident wording.

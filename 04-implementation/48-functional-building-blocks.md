@@ -10,9 +10,9 @@ Functional building blocks translate the accepted architecture into cohesive imp
 
 ## Building block index
 
-| ID | Name | Responsibility | Capabilities and requirements | User stories | Dependencies | Context package | Downstream owner | Status |
-|---|---|---|---|---|---|---|---|---|
-| `FBB-001` | [Verb-noun building block] | [One cohesive responsibility] | `CAP/REQ/DES/NFR-NNN` | `US-NNN` | `DEP-NNN` | `CTX-NNN` | [Role/team] | Proposed/Ready/Blocked |
+| ID | Name | Responsibility | Realization | Capabilities and requirements | User stories | Dependencies | Context package | Downstream owner | Status |
+|---|---|---|---|---|---|---|---|---|---|
+| `FBB-001` | [Verb-noun building block] | [One cohesive responsibility] | `REAL-NNN` with strategy Build | `CAP/REQ/DES/NFR-NNN` | `US-NNN` | `DEP-NNN` | `CTX-NNN` | [Role/team] | Proposed/Ready/Blocked |
 
 ## Building block specification
 
@@ -25,6 +25,7 @@ Functional building blocks translate the accepted architecture into cohesive imp
 **Traceability**
 
 - Capabilities and requirements: [IDs and links]
+- Capability realization: `REAL-NNN`
 - Architecture and ADRs: [links]
 - User stories and tests: [IDs and links]
 - Risks and assumptions: [IDs and links]
