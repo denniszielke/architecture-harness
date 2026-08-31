@@ -1,0 +1,43 @@
+# Release and Deployment Automation Plan
+
+> Status: Draft
+> Canonical owner: Platform or release engineering lead - name to be assigned
+> Required reviewers: Engineering, security, architecture, test, and operations owners
+> Gate: G4 and G6
+> Last reviewed: Not reviewed
+
+## Change path
+
+```text
+Work item -> reviewed change -> build -> quality/security checks
+-> immutable artifact -> environment checks -> deployment
+-> verification -> evidence -> promotion or rollback
+```
+
+## Planned pipeline controls
+
+| Stage | Inputs | Required automated checks | Approval | Expected artifact/evidence | Failure action |
+|---|---|---|---|---|---|
+| [Build/test/deploy/verify/promote] | [Versioned inputs] | [Checks] | [Role or policy] | [Output] | [Stop/rollback] |
+
+## Automation requirements
+
+- Reproducible builds with pinned dependencies and artifact provenance.
+- Unit, contract, integration, migration, security, policy, infrastructure, and acceptance checks.
+- Secret, dependency, code, container, infrastructure, and license scanning as applicable.
+- Immutable application, infrastructure, data-contract, model, prompt, rule, and configuration versions.
+- Environment-specific configuration without source changes.
+- Deployment strategy, health verification, rollback, roll-forward, and failed-migration handling.
+- Release notes linking scope, commits, artifacts, ADRs, tests, evidence, and known limitations.
+
+## Separation of duties
+
+[Define who may author, review, approve, deploy, operate, and use emergency access. State where downstream automation must enforce the separation.]
+
+## Rollback and recovery
+
+[Define compatibility window, state and data migration reversal, feature disablement, prior artifact restoration, and expected evidence.]
+
+## Downstream ownership
+
+[Identify the implementation repository, pipeline owner, required platform services, policy dependencies, and validation owner. This harness specifies the automation contract; it does not create or run pipelines.]

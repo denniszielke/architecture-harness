@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "1.3",
+  "artifactStates": [
+    "Draft",
+    "In review",
+    "Accepted",
+    "Blocked",
+    "Superseded"
+  ],
+  "evidenceClasses": [
+    "Source fact",
+    "Assumption",
+    "Target",
+    "Proposal",
+    "Accepted decision",
+    "Designed",
+    "Demonstrated",
+    "Operational evidence",
+    "Future commitment"
+  ],
+  "realizationStrategies": [
+    "Buy",
+    "Configure",
+    "Build",
+    "Reuse",
+    "Integrate",
+    "Retire"
+  ],
+  "ultimateDelivery": {
+    "deliverableId": "DEL-001",
+    "artifact": "07-presentation/76-validated-scenario.md",
+    "gate": "G7"
+  },
+  "requiredAgents": [
+    "Program Orchestrator",
+    "Preparation Foundation",
+    "Solution Design Partner",
+    "Architecture Partner",
+    "ADR Proposal Partner",
+    "Engineering Manager",
+    "Sizing and FinOps Partner",
+    "Operations Readiness Partner",
+    "Cloud Security Reviewer"
+  ],
+  "taskNamespaces": [
+    "FRM",
+    "PREP",
+    "DES",
+    "ARC",
+    "IMP",
+    "SIZE",
+    "OPS",
+    "PRES"
+  ],
+  "testNamespaces": [
+    "IMP",
+    "SIZE",
+    "OPS"
+  ],
+  "agentToolPolicy": {
+    "allowedTools": [
+      "read",
+      "search",
+      "edit",
+      "web",
+      "askQuestions",
+      "todo",
+      "agent"
+    ],
+    "webEnabledAgents": [
+      "ADR Proposal Partner",
+      "Sizing and FinOps Partner"
+    ],
+    "executeEnabledAgents": [],
+    "readOnlyAgents": [
+      "Cloud Security Reviewer"
+    ],
+    "readOnlyAllowedTools": [
+      "read",
+      "search",
+      "askQuestions"
+    ],
+    "webPolicyRequiredPhrases": [
+      "Repository first",
+      "Necessary use only",
+      "Authoritative sources",
+      "Provenance",
+      "No disclosure"
+    ]
+  },
+  "identifierPrefixes": {
+    "SRC": "Source fact",
+    "ASM": "Assumption",
+    "SCN": "Scenario step",
+    "VIS": "Vision principle or guardrail",
+    "GOAL": "Business goal",
+    "OBJ": "Measurable objective",
+    "SCP": "Scope item",
+    "DEL": "Deliverable",
+    "TASK": "Phase task",
+    "CAP": "Capability",
+    "REAL": "Capability realization",
+    "PROD": "Required product or service",
+    "REQ": "Requirement",
+    "DES": "Design item",
+    "DPR": "Design principle",
+    "INT": "Integration",
+    "NFR": "Non-functional requirement",
+    "ADR": "Architecture decision",
+    "RISK": "Risk",
+    "CHG": "Input change",
+    "DEP": "Dependency",
+    "EXP": "Experiment",
+    "IMP": "Implementation item",
+    "US": "User story",
+    "FBB": "Functional building block",
+    "CTX": "Code-generation context package",
+    "HND": "Implementation handoff",
+    "EFF": "Delivery effort estimate",
+    "CAPEST": "Capacity estimate",
+    "COST": "Cloud or service cost estimate",
+    "TEST": "Phase test (TEST-<phase>-NNN)",
+    "EVID": "Evidence",
+    "SIZE-A": "Sizing assumption",
+    "MET": "Metric or service indicator",
+    "SOP": "Standard operating procedure",
+    "GATE-EVENT": "Gate decision history event",
+    "CLAIM": "Presentation claim"
+  },
+  "phases": [
+    {
+      "id": "00",
+      "name": "framing",
+      "folder": "00-framing",
+      "plan": "00-framing/00-framing-plan.md",
+      "mayStartAfter": [],
+      "exitGateRequires": [],
+      "exitGate": "G0"
+    },
+    {
+      "id": "01",
+      "name": "preparation",
+      "folder": "01-preparation",
+      "plan": "01-preparation/10-preparation-plan.md",
+      "mayStartAfter": [
+        "G0"
+      ],
+      "exitGateRequires": [
+        "G0"
+      ],
+      "exitGate": "G1"
+    },
+    {
+      "id": "02",
+      "name": "design",
+      "folder": "02-design",
+      "plan": "02-design/20-design-phase-plan.md",
+      "mayStartAfter": [
+        "G1"
+      ],
+      "exitGateRequires": [
+        "G1"
+      ],
+      "exitGate": "G2"
+    },
+    {
+      "id": "03",
+      "name": "architecture",
+      "folder": "03-architecture",
+      "plan": "03-architecture/30-architecture-phase-plan.md",
+      "mayStartAfter": [
+        "G2"
+      ],
+      "exitGateRequires": [
+        "G2"
+      ],
+      "exitGate": "G3"
+    },
+    {
+      "id": "04",
+      "name": "implementation-handoff",
+      "folder": "04-implementation",
+      "plan": "04-implementation/40-implementation-phase-plan.md",
+      "mayStartAfter": [
+        "G3"
+      ],
+      "exitGateRequires": [
+        "G3"
+      ],
+      "exitGate": "G4"
+    },
+    {
+      "id": "05",
+      "name": "sizing",
+      "folder": "05-sizing",
+      "plan": "05-sizing/50-sizing-plan.md",
+      "mayStartAfter": [
+        "G2"
+      ],
+      "exitGateRequires": [
+        "G3",
+        "G4"
+      ],
+      "exitGate": "G5"
+    },
+    {
+      "id": "06",
+      "name": "operations",
+      "folder": "06-operations",
+      "plan": "06-operations/60-operations-plan.md",
+      "mayStartAfter": [
+        "G1"
+      ],
+      "exitGateRequires": [
+        "G3",
+        "G4",
+        "G5"
+      ],
+      "exitGate": "G6"
+    },
+    {
+      "id": "07",
+      "name": "presentation",
+      "folder": "07-presentation",
+      "plan": "07-presentation/70-presentation-plan.md",
+      "mayStartAfter": [
+        "G0"
+      ],
+      "exitGateRequires": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6"
+      ],
+      "exitGate": "G7"
+    }
+  ],
+  "gates": {
+    "G0": "Framing sufficient for preparation",
+    "G1": "Preparation baseline accepted",
+    "G2": "Logical design ready for architecture",
+    "G3": "Architecture ready for implementation planning",
+    "G4": "Implementation handoff ready",
+    "G5": "Delivery effort, sizing model, and validation plan ready",
+    "G6": "Operating model and operational-readiness plan ready",
+    "G7": "Architecture-validated scenario and decision package ready"
+  },
+  "requiredArtifacts": [
+    "README.md",
+    "AGENTS.md",
+    "architecture-harness.json",
+    "00-framing/00-framing-plan.md",
+    "00-framing/01-vision.md",
+    "00-framing/02-assumptions.md",
+    "00-framing/03-scenario.md",
+    "00-framing/04-business-goals.md",
+    "01-preparation/10-preparation-plan.md",
+    "01-preparation/11-narrative.md",
+    "01-preparation/12-objectives.md",
+    "01-preparation/13-scope.md",
+    "01-preparation/14-deliverables.md",
+    "01-preparation/15-governance.md",
+    "01-preparation/16-change-impact-register.md",
+    "01-preparation/17-gate-register.md",
+    "01-preparation/18-risk-register.md",
+    "01-preparation/19-external-evidence-register.md",
+    "02-design/20-design-phase-plan.md",
+    "02-design/21-high-level-design.md",
+    "02-design/22-design-principles.md",
+    "02-design/23-requirements-and-acceptance.md",
+    "02-design/domains/data-model.md",
+    "02-design/domains/platform-concept.md",
+    "02-design/domains/integration-patterns.md",
+    "02-design/domains/application-and-ai-experience.md",
+    "02-design/domains/operating-model.md",
+    "02-design/domains/resilience.md",
+    "02-design/domains/security.md",
+    "03-architecture/30-architecture-phase-plan.md",
+    "03-architecture/31-enterprise-capabilities.md",
+    "03-architecture/32-functional-architecture.md",
+    "03-architecture/33-target-solution-architecture.md",
+    "03-architecture/34-functional-dependencies.md",
+    "03-architecture/35-non-functional-architecture.md",
+    "03-architecture/36-architecture-decision-process.md",
+    "03-architecture/37-capability-realization.md",
+    "03-architecture/decisions/README.md",
+    "03-architecture/decisions/adr-template.md",
+    "04-implementation/40-implementation-phase-plan.md",
+    "04-implementation/41-backlog.md",
+    "04-implementation/42-environment-setup.md",
+    "04-implementation/44-release-and-deployment-automation.md",
+    "04-implementation/45-user-stories.md",
+    "04-implementation/46-code-generation-context.md",
+    "04-implementation/47-test-and-validation.md",
+    "04-implementation/48-functional-building-blocks.md",
+    "04-implementation/49-implementation-handoff.md",
+    "05-sizing/50-sizing-plan.md",
+    "05-sizing/51-sizing-assumptions.md",
+    "05-sizing/52-observability-and-key-metrics.md",
+    "05-sizing/53-sizing-tests.md",
+    "05-sizing/54-sizing-and-cost-estimation.md",
+    "05-sizing/55-delivery-effort-estimate.md",
+    "06-operations/60-operations-plan.md",
+    "06-operations/61-roles-and-responsibilities.md",
+    "06-operations/62-standard-operating-procedure-automation.md",
+    "06-operations/63-security-concept.md",
+    "06-operations/64-rollout-and-deployment.md",
+    "06-operations/65-service-management-and-continuity.md",
+    "07-presentation/70-presentation-plan.md",
+    "07-presentation/71-business-value-story.md",
+    "07-presentation/75-claim-and-evidence-register.md",
+    "07-presentation/76-validated-scenario.md"
+  ],
+  "optionalArtifacts": [
+    "04-implementation/43-prototypes.md",
+    "07-presentation/72-architecture-patterns.md",
+    "07-presentation/73-functional-architecture.md",
+    "07-presentation/74-operating-model.md"
+  ]
+}
