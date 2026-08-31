@@ -19,7 +19,7 @@
 - [ ] Backlog items and user stories are sequenced and owned.
 - [ ] Functional building blocks have complete responsibility and contract specifications.
 - [ ] Environment prerequisites and security guardrails are defined.
-- [ ] Prototype and spike plans identify downstream execution owners.
+- [ ] Prototype and spike plans identify downstream execution owners when material uncertainty requires them.
 - [ ] Release and deployment automation requirements are defined.
 - [ ] Code-generation context packages are complete and versioned.
 - [ ] Test plans and expected evidence are linked.

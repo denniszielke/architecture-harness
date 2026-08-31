@@ -41,3 +41,14 @@ Program Orchestrator: assemble the architecture-validated scenario and prepare t
 ```
 
 Use the same agent conversation while refining one bounded concern. Start a separate conversation when the canonical owner or decision context changes.
+
+## Tool-access policy
+
+- All agents read repository sources and use repository search first.
+- No custom agent has command-execution access.
+- Only **ADR Proposal Partner** and **Sizing and FinOps Partner** have web access.
+- Their web access is limited to current, material product/standards evidence or pricing/licensing facts missing from the repository.
+- **Cloud Security Reviewer** remains read-only.
+- Other agents route a bounded external-evidence question to one of the web-enabled agents rather than browsing.
+
+The validator enforces this policy from `architecture-harness.json`.

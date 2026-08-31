@@ -18,17 +18,16 @@ Turn approved facts, decisions, architecture, implementation handoff, sizing mod
 | `TASK-PRES-01` | Confirm audience and requested decision | G0 and sponsor input | Presentation brief | Decision, alternatives, authority, time, and objections are explicit | Not started | Not available |
 | `TASK-PRES-02` | Build claim and evidence register | Accepted and demonstrated sources | [75-claim-and-evidence-register.md](75-claim-and-evidence-register.md) | Every material claim has a class, source, caveat, and reviewer | Not started | Not available |
 | `TASK-PRES-03` | Create value story | `TASK-PRES-01`, `TASK-PRES-02` | [71-business-value-story.md](71-business-value-story.md) | Problem, change, evidence, investment, risk, and ask form one argument | Not started | Not available |
-| `TASK-PRES-04` | Prepare architecture views | G2-G6 artifacts | [72-architecture-patterns.md](72-architecture-patterns.md), [73-functional-architecture.md](73-functional-architecture.md) | Views are accurate, audience-appropriate, and traceable | Not started | Not available |
-| `TASK-PRES-05` | Explain operating model | G6 package | [74-operating-model.md](74-operating-model.md) | Accountability, rollout, support, security, cost, and continuity are visible | Not started | Not available |
-| `TASK-PRES-06` | Assemble the architecture-validated scenario | G1-G6 packages | [76-validated-scenario.md](76-validated-scenario.md) | Every scenario step maps to realization, product or custom build, effort, cloud cost, operating owner, and validation status | Not started | Not available |
-| `TASK-PRES-07` | Review and rehearse | `TASK-PRES-01`-`TASK-PRES-06` | Gate recommendation | Claims, timing, accessibility, objections, caveats, validated-scenario conditions, and requested decision are ready | Not started | Not available |
+| `TASK-PRES-04` | Prepare optional audience-specific views | G2-G6 artifacts | Optional [architecture patterns](72-architecture-patterns.md), [functional architecture](73-functional-architecture.md), and [operating model](74-operating-model.md) views | Any view required for the decision audience is accurate, traceable, or explicitly not applicable | Not started | Not available |
+| `TASK-PRES-05` | Assemble the architecture-validated scenario | G1-G6 packages | [76-validated-scenario.md](76-validated-scenario.md) | Every scenario step maps to realization, product or custom build, effort, cloud cost, operating owner, and validation status | Not started | Not available |
+| `TASK-PRES-06` | Review and rehearse | `TASK-PRES-01`-`TASK-PRES-03`, `TASK-PRES-05`; `TASK-PRES-04` when required | Gate recommendation | Claims, timing, accessibility, objections, caveats, validated-scenario conditions, and requested decision are ready | Not started | Not available |
 
 ## G7 criteria
 
 - The audience, decision authority, requested decision, alternatives, and consequence of delay are explicit.
 - Every material claim is classified and linked to its canonical source.
 - Targets, proposals, accepted decisions, designed controls, externally demonstrated results, operational evidence, and future commitments are visibly distinct.
-- Architecture views preserve actual boundaries and do not imply unapproved sharing, scale, compliance, or service capability.
+- Canonical architecture sources and any optional audience views preserve actual boundaries and do not imply unapproved sharing, scale, compliance, or service capability.
 - Costs include assumptions, range, date, and exclusions.
 - Every in-scope scenario step identifies how it is achieved, its required capabilities, buy/configure/build/reuse/integrate/retire strategy, products or custom building blocks, delivery effort, cloud/service cost, and operating owner.
 - Delivery effort and cloud/service cost have separate low/base/high ranges and confidence.

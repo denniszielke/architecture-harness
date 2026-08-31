@@ -27,7 +27,7 @@ The repository is a starter, not a completed reference architecture. A new proje
 - An ADR process and reusable ADR template.
 - Registers for assumptions, requirements, risks, gates, external evidence, sizing, planned tests, and claims.
 - A final architecture-validated scenario linking business outcomes to realization, products, effort, cloud cost, operations, and evidence.
-- GitHub Copilot custom agents, portable agent skills, and VS Code prompt files.
+- GitHub Copilot custom agents and portable agent skills.
 - A manifest-driven validator and GitHub Actions workflow.
 
 ## Quick start
@@ -66,7 +66,7 @@ open changes, and gate register. Identify the smallest dependency-ready task,
 its owner, required output, completion check, and evidence.
 ```
 
-In VS Code, the `/start-architecture-project` prompt provides the same starting workflow. Prompt files are VS Code conveniences; custom agents and skills contain the portable behavior used by supported cloud agent surfaces.
+Continue with the same Program Orchestrator conversation while it routes bounded work to the specialist agents. The repository uses agents and skills rather than VS Code-only prompt files so the workflow remains portable across supported agent surfaces.
 
 ### 4. Execute one bounded task
 
@@ -148,21 +148,7 @@ The downstream implementation workflow owns execution. It returns material archi
 
 ## Ultimate delivery
 
-The default final delivery is [07-presentation/76-validated-scenario.md](07-presentation/76-validated-scenario.md).
-
-For every in-scope business scenario step, it answers:
-
-- what business goal and objective are served;
-- what behavior and capabilities are required;
-- whether the capability is bought, configured, built, reused, integrated, or retired;
-- which products, services, tiers, licenses, or custom functional building blocks are required;
-- which ADR governs each material choice;
-- the low, base, and high delivery effort by role and wave;
-- the low, base, and high cloud/service cost with commercial assumptions;
-- who owns, secures, supports, and operates the realized capability; and
-- whether the result is architecture-validated, conditional, blocked, or supported by cited external evidence.
-
-`Architecture-validated` means complete and decision-ready at architecture level. It does not mean that code exists, products are procured, environments are deployed, or business outcomes and production readiness have been demonstrated.
+The default final delivery is [07-presentation/76-validated-scenario.md](07-presentation/76-validated-scenario.md). Its definition, matrix, assessment states, and limitations are canonical; it integrates scenario outcomes, realization, products or custom build, effort, cloud cost, ownership, and external evidence without claiming implementation.
 
 ## Phase-by-phase usage
 
@@ -313,19 +299,21 @@ Never repair an upstream inconsistency only in the presentation. Correct the can
 
 ## Using the agents
 
-The detailed roster and collaboration rules are in [AGENTS.md](AGENTS.md).
+Start with **Program Orchestrator** and let it route bounded work to the specialist owner. The complete roster, ownership, handoffs, and collaboration rules are maintained in [AGENTS.md](AGENTS.md).
 
-| Agent | Use it for |
-|---|---|
-| Program Orchestrator | Current-state assessment, task selection, dependency management, replay, and gate preparation |
-| Preparation Foundation | Framing and preparation artifacts |
-| Solution Design Partner | Product-independent design and requirements |
-| Architecture Partner | Capabilities, buy/configure/build/reuse/integrate/retire realization, required products, topology, dependencies, and NFR realization |
-| ADR Proposal Partner | Decision framing, research, alternatives, consequences, and proposed ADRs |
-| Engineering Manager | Implementation plan, backlog, stories, functional building blocks, environment/release/test plans, code-generation context, and handoff |
-| Sizing and FinOps Partner | Delivery effort, role demand, workload and cloud-cost model, telemetry requirements, sensitivity, scaling triggers, and validation plan |
-| Operations Readiness Partner | Operating model, service ownership, procedure specifications, rollout, support, security operations, and continuity plans |
-| Cloud Security Reviewer | Read-only security and threat review |
+### Agent tool policy
+
+The harness is repository-first:
+
+- All agents read canonical artifacts and use repository search before seeking external information.
+- No custom agent has command-execution access.
+- Only **ADR Proposal Partner** and **Sizing and FinOps Partner** have web access.
+- ADR web access is restricted to current, material product, service, region, quota, lifecycle, security, support, licensing, or standards evidence missing from the repository.
+- Sizing web access is restricted to current pricing, meters, SKUs, licensing, commercial terms, regions, and service limits missing from the repository.
+- Web-enabled agents use authoritative sources, record URL/date/finding/limitation, and never submit repository or sensitive content in an external query.
+- **Cloud Security Reviewer** is read-only.
+
+The machine-readable policy lives in [architecture-harness.json](architecture-harness.json), and the validator rejects excessive agent permissions.
 
 ### Example agent prompts
 
@@ -529,12 +517,14 @@ When adding or removing a required starter artifact:
 
 1. identify its canonical owner;
 2. update the owning phase plan;
-3. update `requiredArtifacts` in [architecture-harness.json](architecture-harness.json);
+3. update `requiredArtifacts` or `optionalArtifacts` in [architecture-harness.json](architecture-harness.json);
 4. update links and agent instructions;
 5. run the validator; and
 6. document any changed gate or replay behavior.
 
 Avoid creating a root document when a phase folder already owns the content.
+
+The prototype/spike template and the separate presentation pattern, functional, and operating-model views are optional. A fork may remove them without failing validation; the phase plans retain their optional handoff points.
 
 ## Working without GitHub Copilot
 
@@ -555,7 +545,6 @@ Agents accelerate discovery, consistency checking, and drafting. Human owners re
 ```text
 .github/
   agents/       Role-based Copilot agents
-  prompts/      VS Code prompt files
   skills/       Portable architecture workflows
   workflows/    Harness validation
 00-framing/     Vision, assumptions, scenario, and goals

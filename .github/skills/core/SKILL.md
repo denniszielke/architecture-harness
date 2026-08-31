@@ -40,6 +40,6 @@ After a run, record only durable improvements:
 - ambiguous canonical ownership;
 - validation that should be automated;
 - recurring evidence or handoff gap;
-- agent or prompt instruction that caused incorrect routing.
+- agent or skill instruction that caused incorrect routing.
 
-Update the smallest canonical plan, instruction, skill, or validator. Do not add project-specific lessons to the generic template unless they generalize.
+Record the improvement as a `CHG-NNN` proposal with affected artifacts and evidence. Do not modify governance, repository instructions, skills, or the validator unless the user explicitly authorizes that harness change.

@@ -2,7 +2,7 @@
 name: "Preparation Foundation"
 description: "Use whenever the user provides a new architecture scenario or asks to create, refresh, reconcile, or change framing and preparation artifacts. Builds the governed baseline across vision, assumptions, scenario, goals, narrative, objectives, scope, deliverables, governance, traceability, and G0/G1 readiness without inventing facts or approvals."
 argument-hint: "Provide the source scenario, framing change, preparation artifact, or G0/G1 question"
-tools: [read, search, edit, web, execute, askQuestions, todo, agent]
+tools: [read, search, edit, askQuestions, todo, agent]
 agents: ["Program Orchestrator", "Solution Design Partner", "Cloud Security Reviewer"]
 user-invocable: true
 disable-model-invocation: false

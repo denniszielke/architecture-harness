@@ -13,15 +13,6 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "architecture-harness.json"
 
-REQUIRED_AGENTS = {
-    "Program Orchestrator",
-    "Preparation Foundation",
-    "Solution Design Partner",
-    "Architecture Partner",
-    "ADR Proposal Partner",
-    "Engineering Manager",
-}
-
 EXPECTED_PHASES = {
     "00": ("00-framing", "00-framing/00-framing-plan.md", "G0"),
     "01": ("01-preparation", "01-preparation/10-preparation-plan.md", "G1"),
@@ -49,10 +40,6 @@ REFERENCE_DEFINITION_RE = re.compile(
 REFERENCE_USE_RE = re.compile(r"(?<!!)\[([^\]]+)\]\[([^\]]*)\]")
 EXTERNAL_SCHEME_RE = re.compile(r"^[A-Za-z][A-Za-z0-9+.-]*:")
 IDENTIFIER_RE = re.compile(r"\b[A-Z][A-Z0-9]*(?:-[A-Z][A-Z0-9]*)*-\d{2,3}\b")
-TASK_IDENTIFIER_RE = re.compile(
-    r"TASK-(?:FRM|PREP|DES|ARC|IMP|SIZE|OPS|PRES)-\d{2}"
-)
-TEST_IDENTIFIER_RE = re.compile(r"TEST-(?:IMP|SIZE|OPS)-\d{3}")
 ACCEPTED_PLACEHOLDER_RE = re.compile(
     r"\[(?:replace|describe|add|role|owner|name|date|value|scope|link|"
     r"source|target|threshold|purpose|outcome|boundary|question|action)\b"
@@ -138,6 +125,29 @@ def frontmatter_keys(text: str) -> set[str]:
     return set(re.findall(r"^([A-Za-z][A-Za-z0-9-]*):", text[4:end], re.MULTILINE))
 
 
+def frontmatter_list_value(text: str, key: str) -> list[str] | None:
+    if not text.startswith("---\n"):
+        return None
+    end = text.find("\n---\n", 4)
+    if end == -1:
+        return None
+    match = re.search(
+        rf"^{re.escape(key)}:\s*\[(.*?)\]\s*$",
+        text[4:end],
+        re.MULTILINE,
+    )
+    if not match:
+        return None
+    content = match.group(1).strip()
+    if not content:
+        return []
+    return [
+        item.strip().strip("\"'")
+        for item in content.split(",")
+        if item.strip()
+    ]
+
+
 def load_manifest(errors: list[str]) -> dict[str, object]:
     try:
         manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
@@ -167,6 +177,29 @@ def validate_required_paths(manifest: dict[str, object], errors: list[str]) -> N
             errors.append(f"Missing required file: {relative}")
         elif not has_exact_case(path):
             errors.append(f"Required artifact has incorrect path casing: {relative}")
+
+    optional = manifest.get("optionalArtifacts")
+    if not isinstance(optional, list):
+        errors.append("Manifest optionalArtifacts must be a list")
+        return
+    overlap = set(required).intersection(
+        relative for relative in optional if isinstance(relative, str)
+    )
+    if overlap:
+        errors.append(
+            f"Artifacts cannot be both required and optional: {', '.join(sorted(overlap))}"
+        )
+    for relative in optional:
+        if not isinstance(relative, str):
+            errors.append("Every optionalArtifacts entry must be a string")
+            continue
+        path = repository_path(relative)
+        if path is None:
+            errors.append(f"Optional artifact escapes the repository: {relative}")
+        elif path.exists() and not path.is_file():
+            errors.append(f"Optional artifact is not a file: {relative}")
+        elif path.exists() and not has_exact_case(path):
+            errors.append(f"Optional artifact has incorrect path casing: {relative}")
 
 
 def validate_manifest(manifest: dict[str, object], errors: list[str]) -> None:
@@ -315,22 +348,129 @@ def validate_manifest(manifest: dict[str, object], errors: list[str]) -> None:
             )
 
 
-def validate_frontmatter(errors: list[str]) -> None:
+def validate_frontmatter(
+    manifest: dict[str, object], errors: list[str]
+) -> None:
     names: set[str] = set()
+    agent_tools: dict[str, set[str]] = {}
     for path in sorted((ROOT / ".github/agents").glob("*.agent.md")):
         text = path.read_text(encoding="utf-8")
         name = frontmatter_value(text, "name")
         description = frontmatter_value(text, "description")
+        tools = frontmatter_list_value(text, "tools")
         if not name or not description:
             errors.append(f"Agent frontmatter is incomplete: {path.relative_to(ROOT)}")
         elif name in names:
             errors.append(f"Duplicate agent name '{name}': {path.relative_to(ROOT)}")
         else:
             names.add(name)
+            if tools is None:
+                errors.append(
+                    f"Agent must declare an explicit tools list: {path.relative_to(ROOT)}"
+                )
+            else:
+                agent_tools[name] = set(tools)
 
-    missing_agents = REQUIRED_AGENTS - names
+    configured_required = manifest.get("requiredAgents")
+    if not isinstance(configured_required, list) or not all(
+        isinstance(name, str) for name in configured_required
+    ):
+        errors.append("Manifest requiredAgents must be a list of names")
+        required_agents: set[str] = set()
+    else:
+        required_agents = set(configured_required)
+    missing_agents = required_agents - names
     if missing_agents:
         errors.append(f"Missing required agents: {', '.join(sorted(missing_agents))}")
+
+    policy = manifest.get("agentToolPolicy")
+    if not isinstance(policy, dict):
+        errors.append("Manifest must define agentToolPolicy")
+    else:
+        allowed_tools_value = policy.get("allowedTools")
+        web_agents_value = policy.get("webEnabledAgents")
+        execute_agents_value = policy.get("executeEnabledAgents")
+        read_only_agents_value = policy.get("readOnlyAgents")
+        read_only_allowed_tools_value = policy.get("readOnlyAllowedTools")
+        web_policy_phrases_value = policy.get("webPolicyRequiredPhrases")
+        policy_lists = {
+            "allowedTools": allowed_tools_value,
+            "webEnabledAgents": web_agents_value,
+            "executeEnabledAgents": execute_agents_value,
+            "readOnlyAgents": read_only_agents_value,
+            "readOnlyAllowedTools": read_only_allowed_tools_value,
+            "webPolicyRequiredPhrases": web_policy_phrases_value,
+        }
+        for key, value in policy_lists.items():
+            if not isinstance(value, list) or not all(
+                isinstance(item, str) for item in value
+            ):
+                errors.append(f"Manifest agentToolPolicy.{key} must be a list of strings")
+        if all(
+            isinstance(value, list)
+            and all(isinstance(item, str) for item in value)
+            for value in policy_lists.values()
+        ):
+            allowed_tools = set(allowed_tools_value)
+            web_agents = set(web_agents_value)
+            execute_agents = set(execute_agents_value)
+            read_only_agents = set(read_only_agents_value)
+            read_only_allowed_tools = set(read_only_allowed_tools_value)
+            web_policy_phrases = set(web_policy_phrases_value)
+            unknown_policy_agents = (
+                web_agents | execute_agents | read_only_agents
+            ) - names
+            if unknown_policy_agents:
+                errors.append(
+                    "Tool policy references unknown agents: "
+                    f"{', '.join(sorted(unknown_policy_agents))}"
+                )
+            for name, tools in agent_tools.items():
+                unsupported = tools - allowed_tools
+                if unsupported:
+                    errors.append(
+                        f"Agent '{name}' uses tools outside policy: "
+                        f"{', '.join(sorted(unsupported))}"
+                    )
+                if "web" in tools and name not in web_agents:
+                    errors.append(f"Agent '{name}' has unauthorized web access")
+                if name in web_agents and "web" not in tools:
+                    errors.append(f"Agent '{name}' is missing its approved web tool")
+                if "execute" in tools and name not in execute_agents:
+                    errors.append(f"Agent '{name}' has unauthorized execute access")
+                if name in execute_agents and "execute" not in tools:
+                    errors.append(f"Agent '{name}' is missing its approved execute tool")
+                if name in read_only_agents:
+                    excessive_read_only_tools = tools - read_only_allowed_tools
+                    if excessive_read_only_tools:
+                        errors.append(
+                            f"Read-only agent '{name}' uses excessive tools: "
+                            f"{', '.join(sorted(excessive_read_only_tools))}"
+                        )
+                if "web" in tools:
+                    agent_path = next(
+                        path
+                        for path in (ROOT / ".github/agents").glob("*.agent.md")
+                        if frontmatter_value(
+                            path.read_text(encoding="utf-8"), "name"
+                        )
+                        == name
+                    )
+                    agent_text = agent_path.read_text(encoding="utf-8")
+                    if "## Web-access policy" not in agent_text:
+                        errors.append(
+                            f"Web-enabled agent '{name}' has no Web-access policy"
+                        )
+                    missing_web_policy = [
+                        phrase
+                        for phrase in web_policy_phrases
+                        if phrase.casefold() not in agent_text.casefold()
+                    ]
+                    if missing_web_policy:
+                        errors.append(
+                            f"Web-enabled agent '{name}' is missing policy constraints: "
+                            f"{', '.join(sorted(missing_web_policy))}"
+                        )
 
     for path in sorted((ROOT / ".github/skills").glob("*/SKILL.md")):
         text = path.read_text(encoding="utf-8")
@@ -355,12 +495,6 @@ def validate_frontmatter(errors: list[str]) -> None:
             errors.append(f"Skill description exceeds 1024 characters: {path.relative_to(ROOT)}")
         if len(text.splitlines()) > 500:
             errors.append(f"Skill exceeds 500 lines: {path.relative_to(ROOT)}")
-
-    for path in sorted((ROOT / ".github/prompts").glob("*.prompt.md")):
-        text = path.read_text(encoding="utf-8")
-        if not frontmatter_value(text, "name") or not frontmatter_value(text, "description"):
-            errors.append(f"Prompt frontmatter is incomplete: {path.relative_to(ROOT)}")
-
 
 def validate_controlled_artifacts(
     manifest: dict[str, object], errors: list[str]
@@ -494,7 +628,12 @@ def parse_inline_destinations(text: str) -> list[str]:
     return destinations
 
 
-def validate_link_target(path: Path, target: str, errors: list[str]) -> None:
+def validate_link_target(
+    path: Path,
+    target: str,
+    errors: list[str],
+    optional_paths: set[Path],
+) -> None:
     decoded = unquote(target)
     target_path, separator, fragment = decoded.partition("#")
     if EXTERNAL_SCHEME_RE.match(target_path):
@@ -503,7 +642,8 @@ def validate_link_target(path: Path, target: str, errors: list[str]) -> None:
     if not is_within(resolved, ROOT):
         errors.append(f"Link escapes repository: {path.relative_to(ROOT)} -> {target_path}")
     elif not resolved.exists():
-        errors.append(f"Broken local link: {path.relative_to(ROOT)} -> {target_path}")
+        if resolved not in optional_paths:
+            errors.append(f"Broken local link: {path.relative_to(ROOT)} -> {target_path}")
     elif not has_exact_case(resolved):
         errors.append(
             f"Local link has incorrect path casing: {path.relative_to(ROOT)} -> "
@@ -516,7 +656,14 @@ def validate_link_target(path: Path, target: str, errors: list[str]) -> None:
             )
 
 
-def validate_links(errors: list[str]) -> None:
+def validate_links(manifest: dict[str, object], errors: list[str]) -> None:
+    optional_paths = {
+        path
+        for relative in manifest.get("optionalArtifacts", [])
+        if isinstance(relative, str)
+        for path in [repository_path(relative)]
+        if path is not None
+    }
     for path in ROOT.rglob("*.md"):
         text = path.read_text(encoding="utf-8")
         definitions = {
@@ -525,9 +672,9 @@ def validate_links(errors: list[str]) -> None:
         }
 
         for target in parse_inline_destinations(text):
-            validate_link_target(path, target, errors)
+            validate_link_target(path, target, errors, optional_paths)
         for target in definitions.values():
-            validate_link_target(path, target, errors)
+            validate_link_target(path, target, errors, optional_paths)
         for visible_text, label in REFERENCE_USE_RE.findall(text):
             resolved_label = normalize_reference_label(label or visible_text)
             if resolved_label not in definitions:
@@ -568,6 +715,26 @@ def validate_identifier_prefixes(
         key=len,
         reverse=True,
     )
+    task_namespaces = manifest.get("taskNamespaces")
+    test_namespaces = manifest.get("testNamespaces")
+    if not isinstance(task_namespaces, list) or not all(
+        isinstance(namespace, str) for namespace in task_namespaces
+    ):
+        errors.append("Manifest taskNamespaces must be a list of strings")
+        task_pattern = None
+    else:
+        task_pattern = re.compile(
+            rf"TASK-(?:{'|'.join(map(re.escape, task_namespaces))})-\d{{2}}"
+        )
+    if not isinstance(test_namespaces, list) or not all(
+        isinstance(namespace, str) for namespace in test_namespaces
+    ):
+        errors.append("Manifest testNamespaces must be a list of strings")
+        test_pattern = None
+    else:
+        test_pattern = re.compile(
+            rf"TEST-(?:{'|'.join(map(re.escape, test_namespaces))})-\d{{3}}"
+        )
     for path in ROOT.rglob("*.md"):
         for identifier in IDENTIFIER_RE.findall(path.read_text(encoding="utf-8")):
             if not any(identifier.startswith(f"{prefix}-") for prefix in prefixes):
@@ -575,14 +742,18 @@ def validate_identifier_prefixes(
                     f"Identifier prefix is not registered: {path.relative_to(ROOT)} -> "
                     f"{identifier}"
                 )
-            elif identifier.startswith("TASK-") and not TASK_IDENTIFIER_RE.fullmatch(
-                identifier
+            elif (
+                identifier.startswith("TASK-")
+                and task_pattern is not None
+                and not task_pattern.fullmatch(identifier)
             ):
                 errors.append(
                     f"Invalid task namespace: {path.relative_to(ROOT)} -> {identifier}"
                 )
-            elif identifier.startswith("TEST-") and not TEST_IDENTIFIER_RE.fullmatch(
-                identifier
+            elif (
+                identifier.startswith("TEST-")
+                and test_pattern is not None
+                and not test_pattern.fullmatch(identifier)
             ):
                 errors.append(
                     f"Invalid test namespace: {path.relative_to(ROOT)} -> {identifier}"
@@ -595,9 +766,9 @@ def main() -> int:
     if manifest:
         validate_required_paths(manifest, errors)
         validate_manifest(manifest, errors)
-    validate_frontmatter(errors)
+    validate_frontmatter(manifest, errors)
     validate_controlled_artifacts(manifest, errors)
-    validate_links(errors)
+    validate_links(manifest, errors)
     validate_markdown_tables(errors)
     if manifest:
         validate_identifier_prefixes(manifest, errors)

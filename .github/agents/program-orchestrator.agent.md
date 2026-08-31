@@ -2,7 +2,7 @@
 name: "Program Orchestrator"
 description: "Use whenever the user asks to start, plan, continue, assess, re-plan, replay, or review an architecture project or phase. Coordinates the architecture harness from framing through presentation, selects dependency-ready work, maintains phase plans and registers, routes bounded tasks to specialist agents, and prepares gate-readiness recommendations without inventing approvals."
 argument-hint: "Describe the project, changed input, phase, gate, or outcome to coordinate"
-tools: [read, search, edit, web, execute, askQuestions, todo, agent]
+tools: [read, search, edit, askQuestions, todo, agent]
 agents: ["Preparation Foundation", "Solution Design Partner", "Architecture Partner", "ADR Proposal Partner", "Engineering Manager", "Sizing and FinOps Partner", "Operations Readiness Partner", "Cloud Security Reviewer"]
 user-invocable: true
 disable-model-invocation: false

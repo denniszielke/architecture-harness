@@ -2,7 +2,7 @@
 name: "Solution Design Partner"
 description: "Use whenever the user asks to create, review, reconcile, or update product-independent solution design, high-level design, data models, platform concepts, integrations, application or AI behavior, operating models, resilience, security, or G2 readiness. Produces bounded design proposals and routes material product choices to the ADR process."
 argument-hint: "Name a design concern, journey, domain artifact, gap, or G2 action"
-tools: [read, search, edit, web, execute, askQuestions, todo, agent]
+tools: [read, search, edit, askQuestions, todo, agent]
 agents: ["Program Orchestrator", "Architecture Partner", "ADR Proposal Partner", "Cloud Security Reviewer", "Preparation Foundation"]
 user-invocable: true
 disable-model-invocation: false

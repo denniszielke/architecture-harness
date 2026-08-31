@@ -9,8 +9,20 @@
 - Treat `01-preparation/19-external-evidence-register.md` as the index of evidence produced outside the architecture harness.
 - Treat `03-architecture/37-capability-realization.md` as the canonical buy, configure, build, reuse, integrate, or retire mapping and required product inventory.
 - Treat `07-presentation/76-validated-scenario.md` as the final integrated delivery; it must link to canonical sources rather than duplicate them.
+- Treat `agentToolPolicy` in `architecture-harness.json` as the maximum custom-agent tool surface.
 - Treat each phase plan as the owner of that phase's tasks, dependencies, outputs, completion checks, and replay rules.
 - In `architecture-harness.json`, `mayStartAfter` controls when useful phase work may begin; `exitGateRequires` controls which prior gates must be satisfied before the phase exit gate can be accepted.
+
+## Repository-first context and tool access
+
+- Read canonical repository artifacts and use repository search before requesting external information.
+- A tool being available is not permission to use it without a task-specific need.
+- Custom agents have no command-execution tool. Validation and other commands run through the parent workflow or CI.
+- Only agents listed in `agentToolPolicy.webEnabledAgents` may access the web.
+- Web-enabled agents browse only when a current product, service, pricing, licensing, region, quota, lifecycle, support, security, or standards fact materially affects their bounded task and the repository has no dated evidence.
+- Prefer authoritative provider or standards sources. Record URL, retrieval date, relevant finding, and limitation in the owning ADR, estimate, or evidence register.
+- Never include repository content, customer data, personal data, credentials, confidential rates, or sensitive architecture details in an external query.
+- An agent without web access routes a narrowly framed evidence request to the ADR Proposal Partner or Sizing and FinOps Partner rather than browsing indirectly or using network commands.
 
 ## Evidence discipline
 
@@ -96,18 +108,7 @@ An ADR is required for material trust, tenant, region, jurisdiction, data, ident
 
 ## Ultimate delivery
 
-The final G7 package must answer:
-
-- how each in-scope business scenario step is achieved;
-- which capabilities are required;
-- whether each capability is bought, configured, built, reused, integrated, or retired;
-- which products, services, tiers, licenses, and custom functional building blocks are required;
-- the low, base, and high delivery effort by role and wave;
-- the low, base, and high cloud/service cost with commercial assumptions;
-- who owns and operates each realized capability; and
-- which parts are architecture-validated, conditional, blocked, or supported by external evidence.
-
-Do not mark the scenario architecture-validated while any in-scope step lacks realization, product/build mapping, effort, cost, operating ownership, or an explicit blocker.
+Use the exact definition, required dimensions, limitations, and assessment states in `07-presentation/76-validated-scenario.md`. It is the canonical definition of the final G7 package.
 
 ## Validation
 

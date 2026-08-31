@@ -8,7 +8,7 @@
 
 | ID | Deliverable | Owner role | Inputs | Acceptance criteria | Required evidence | Due gate | Status |
 |---|---|---|---|---|---|---|---|
-| `DEL-001` | Architecture-validated scenario and decision package | Product or program lead | G0-G6 packages | Every in-scope scenario step traces to objectives, design, capability realization, required products or custom building blocks, delivery effort, cloud/service cost, operating ownership, validation status, and explicit gaps | Phase reviews, accepted ADRs, estimates, and cited external evidence where available | G7 | Draft |
+| `DEL-001` | Architecture-validated scenario and decision package | Product or program lead | G0-G6 packages | Meets the canonical definition and assessment rules in [the architecture-validated scenario](../07-presentation/76-validated-scenario.md) | Phase reviews, accepted ADRs, estimates, and cited external evidence where available | G7 | Draft |
 | `DEL-002` | [Additional project deliverable] | [Role] | [Links] | [Observable criteria] | [Review, test, measurement, or approval evidence] | [Gate] | Draft |
 
 ## Deliverable rules

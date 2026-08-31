@@ -31,6 +31,63 @@
     "artifact": "07-presentation/76-validated-scenario.md",
     "gate": "G7"
   },
+  "requiredAgents": [
+    "Program Orchestrator",
+    "Preparation Foundation",
+    "Solution Design Partner",
+    "Architecture Partner",
+    "ADR Proposal Partner",
+    "Engineering Manager",
+    "Sizing and FinOps Partner",
+    "Operations Readiness Partner",
+    "Cloud Security Reviewer"
+  ],
+  "taskNamespaces": [
+    "FRM",
+    "PREP",
+    "DES",
+    "ARC",
+    "IMP",
+    "SIZE",
+    "OPS",
+    "PRES"
+  ],
+  "testNamespaces": [
+    "IMP",
+    "SIZE",
+    "OPS"
+  ],
+  "agentToolPolicy": {
+    "allowedTools": [
+      "read",
+      "search",
+      "edit",
+      "web",
+      "askQuestions",
+      "todo",
+      "agent"
+    ],
+    "webEnabledAgents": [
+      "ADR Proposal Partner",
+      "Sizing and FinOps Partner"
+    ],
+    "executeEnabledAgents": [],
+    "readOnlyAgents": [
+      "Cloud Security Reviewer"
+    ],
+    "readOnlyAllowedTools": [
+      "read",
+      "search",
+      "askQuestions"
+    ],
+    "webPolicyRequiredPhrases": [
+      "Repository first",
+      "Necessary use only",
+      "Authoritative sources",
+      "Provenance",
+      "No disclosure"
+    ]
+  },
   "identifierPrefixes": {
     "SRC": "Source fact",
     "ASM": "Assumption",
@@ -233,7 +290,6 @@
     "04-implementation/40-implementation-phase-plan.md",
     "04-implementation/41-backlog.md",
     "04-implementation/42-environment-setup.md",
-    "04-implementation/43-prototypes.md",
     "04-implementation/44-release-and-deployment-automation.md",
     "04-implementation/45-user-stories.md",
     "04-implementation/46-code-generation-context.md",
@@ -254,10 +310,13 @@
     "06-operations/65-service-management-and-continuity.md",
     "07-presentation/70-presentation-plan.md",
     "07-presentation/71-business-value-story.md",
-    "07-presentation/72-architecture-patterns.md",
-    "07-presentation/73-functional-architecture.md",
-    "07-presentation/74-operating-model.md",
     "07-presentation/75-claim-and-evidence-register.md",
     "07-presentation/76-validated-scenario.md"
+  ],
+  "optionalArtifacts": [
+    "04-implementation/43-prototypes.md",
+    "07-presentation/72-architecture-patterns.md",
+    "07-presentation/73-functional-architecture.md",
+    "07-presentation/74-operating-model.md"
   ]
 }

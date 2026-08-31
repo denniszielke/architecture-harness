@@ -26,7 +26,7 @@ Translate accepted scope, design, architecture, and decisions into an implementa
 |---|---|---|---|---|---|---|
 | `TASK-IMP-01` | Baseline implementation scope and backlog | G3 package and realization map | [41-backlog.md](41-backlog.md) | Work traces to accepted scope, capability realization, products, design, ADRs, NFRs, and acceptance | Not started | Not available |
 | `TASK-IMP-02` | Define environment prerequisites and guardrails | `TASK-IMP-01` | [42-environment-setup.md](42-environment-setup.md) | Each environment has a purpose, boundary, prerequisites, controls, and validation plan | Not started | Not available |
-| `TASK-IMP-03` | Frame prototypes and spikes | `TASK-IMP-01` | [43-prototypes.md](43-prototypes.md) | Each material uncertainty has a bounded downstream experiment plan | Not started | Not available |
+| `TASK-IMP-03` | Frame prototypes and spikes when required | `TASK-IMP-01` | Optional [43-prototypes.md](43-prototypes.md) | Each material uncertainty has a bounded downstream experiment plan or an explicit not-applicable rationale | Not started | Not available |
 | `TASK-IMP-04` | Define user stories and functional building blocks | `TASK-IMP-01` | [45-user-stories.md](45-user-stories.md), [48-functional-building-blocks.md](48-functional-building-blocks.md) | Stories and building blocks form a complete, traceable thin slice | Not started | Not available |
 | `TASK-IMP-05` | Define release and deployment automation requirements | `TASK-IMP-02`, `TASK-IMP-04` | [44-release-and-deployment-automation.md](44-release-and-deployment-automation.md) | Pipeline stages, controls, promotion, rollback, and evidence expectations are specified | Not started | Not available |
 | `TASK-IMP-06` | Define code-generation context | `TASK-IMP-04`, `TASK-IMP-05` | [46-code-generation-context.md](46-code-generation-context.md) | A downstream coding workflow can consume each bounded context without making architecture decisions | Not started | Not available |
@@ -40,7 +40,7 @@ Translate accepted scope, design, architecture, and decisions into an implementa
 - Buy, configure, reuse, integrate, and retire work is distinguished from custom build work.
 - User stories and functional building blocks define responsibilities, contracts, data, identities, failure behavior, NFRs, observability, operating ownership, and acceptance.
 - Environment prerequisites and security guardrails are implementation-ready.
-- Prototype and spike plans resolve named uncertainties without claiming execution.
+- Prototype and spike plans resolve named uncertainties without claiming execution when documentation and accepted evidence are insufficient.
 - Release, deployment, rollback, migration, and supply-chain controls are specified.
 - Test and validation plans define expected results, evidence, and execution ownership.
 - Code-generation context packages contain sufficient canonical context and explicit prohibited decisions.

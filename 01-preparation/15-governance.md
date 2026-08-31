@@ -84,10 +84,22 @@ Not every record needs every link. Every implementation-handoff item and present
 
 | Record | Canonical owner |
 |---|---|
-| Source, assumption, goal | `00-framing/` artifact matching the record type |
-| Objective, scope, change, gate, risk | `01-preparation/` register matching the record type |
+| Source fact and scenario step | `00-framing/03-scenario.md` |
+| Vision principle or guardrail | `00-framing/01-vision.md` |
+| Assumption | `00-framing/02-assumptions.md` |
+| Business goal | `00-framing/04-business-goals.md` |
+| Objective | `01-preparation/12-objectives.md` |
+| Scope item | `01-preparation/13-scope.md` |
+| Deliverable | `01-preparation/14-deliverables.md` |
+| Change | `01-preparation/16-change-impact-register.md` |
+| Gate and gate event | `01-preparation/17-gate-register.md` |
+| Risk | `01-preparation/18-risk-register.md` |
+| External evidence | `01-preparation/19-external-evidence-register.md` |
+| Design principle | `02-design/22-design-principles.md` |
+| Integration | `02-design/domains/integration-patterns.md` |
 | Capability | `03-architecture/31-enterprise-capabilities.md` |
 | Capability realization and required product | `03-architecture/37-capability-realization.md` |
+| Dependency | `03-architecture/34-functional-dependencies.md` |
 | Requirement, design invariant, NFR statement | `02-design/23-requirements-and-acceptance.md` |
 | NFR realization | `03-architecture/35-non-functional-architecture.md` |
 | Architecture decision | `03-architecture/decisions/` and its index |
@@ -97,12 +109,14 @@ Not every record needs every link. Every implementation-handoff item and present
 | Functional building block | `04-implementation/48-functional-building-blocks.md` |
 | Code-generation context | `04-implementation/46-code-generation-context.md` |
 | Implementation handoff | `04-implementation/49-implementation-handoff.md` |
+| Prototype or spike plan, when used | Optional `04-implementation/43-prototypes.md` |
 | Implementation test (`TEST-IMP`) | `04-implementation/47-test-and-validation.md` |
+| Metric or service indicator | `05-sizing/52-observability-and-key-metrics.md` |
 | Sizing test (`TEST-SIZE`) | `05-sizing/53-sizing-tests.md` |
-| Cloud/service cost | `05-sizing/54-sizing-and-cost-estimation.md` |
+| Capacity and cloud/service cost | `05-sizing/54-sizing-and-cost-estimation.md` |
 | Delivery effort | `05-sizing/55-delivery-effort-estimate.md` |
+| Standard operating procedure | `06-operations/62-standard-operating-procedure-automation.md` |
 | Operational test or exercise (`TEST-OPS`) | `06-operations/65-service-management-and-continuity.md` |
-| External evidence | `01-preparation/19-external-evidence-register.md` |
 | Presentation claim | `07-presentation/75-claim-and-evidence-register.md` |
 | Architecture-validated scenario | `07-presentation/76-validated-scenario.md`, derived from linked canonical sources |
 
@@ -118,7 +132,7 @@ The harness owns architecture definition and implementation context. It may spec
 - sizing models and validation plans; and
 - operating models, procedures, rollout, recovery, and readiness plans.
 
-The default final delivery is `DEL-001`, the architecture-validated scenario and decision package. It must show how every in-scope scenario step maps to required behavior, capability realization, products or custom building blocks, delivery effort, cloud/service cost, operating ownership, and validation status.
+The default final delivery is `DEL-001`. Its canonical definition and assessment rules are in [the architecture-validated scenario](../07-presentation/76-validated-scenario.md).
 
 The downstream implementation workflow owns source code, infrastructure code, pipelines, deployments, test execution, generated artifacts, releases, and measured implementation or operating results. Link relevant results back as external evidence; do not copy delivery artifacts into this repository.
 
