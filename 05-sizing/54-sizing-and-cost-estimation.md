@@ -1,0 +1,45 @@
+# Sizing and Cost Estimation
+
+> Status: Draft
+> Canonical owner: FinOps or finance owner - name to be assigned
+> Required reviewers: Business, architecture, engineering, operations, procurement, and finance owners
+> Gate: G5
+> Last reviewed: Not reviewed
+
+## Estimate context
+
+| Attribute | Value |
+|---|---|
+| Architecture version | [Commit/tag/date] |
+| Region and currency | [Region/currency] |
+| Price source and retrieval date | [URL/export/date] |
+| Commercial model | [List/reservation/commitment/agreement assumptions] |
+| Environments included | [List] |
+| Tax, support, people, and contingency treatment | [Included/excluded] |
+| Estimate maturity | Indicative at G3 / Calibrated after G4 |
+
+## Capacity estimate
+
+| Capability or service | Scale unit | Low | Base | High | Redundancy/headroom | Scale trigger | Evidence |
+|---|---|---:|---:|---:|---|---|---|
+| [Capability/service] | [Unit] | [Value] | [Value] | [Value] | [Factor] | [Metric] | [Test/source] |
+
+## Cost estimate
+
+| Cost category | Driver | Unit rate | Quantity | Low | Base | High | Optimization lever |
+|---|---|---:|---:|---:|---:|---:|---|
+| [Compute/data/integration/AI/network/observability/security/backup/license/support] | [Driver] | [Rate] | [Quantity] | [Cost] | [Cost] | [Cost] | [Lever] |
+
+## Unit economics
+
+| Unit | Base cost | Range | Main drivers | Measurement owner |
+|---|---:|---|---|---|
+| [Per user/transaction/event/job/tenant/model call/outcome] | [Cost] | [Low-high] | [Drivers] | [Role] |
+
+## Sensitivity and risk
+
+| Variable | Change | Cost/capacity effect | Threshold | Mitigation or decision |
+|---|---|---|---|---|
+| [Volume, retention, tokens, region, tier, availability, egress, license] | [+/-] | [Effect] | [Trigger] | [Action/ADR] |
+
+Costs are estimates, not commitments. The G3 indicative estimate owns early product and topology comparisons; replace its assumptions with G4 measurements rather than creating a second cost model. Preserve source date, commercial exclusions, uncertainty, and the difference between measured and extrapolated usage.

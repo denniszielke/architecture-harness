@@ -1,0 +1,21 @@
+name: Validate architecture harness
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Validate structure, agents, skills, and links
+        run: python3 scripts/validate_harness.py
